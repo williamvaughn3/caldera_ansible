@@ -1,13 +1,4 @@
 === Caldera Installation with Pathfinder and Build Plugin Playbook ===
 
-.vars requried group_vars/all.yml
-[ source, yaml ]
----
-
-host_key_checking: false
-timezone: "America/New_York"
-ansible_python_interpreter: /usr/bin/python3
-caldara_install_root_dir: "/opt/"
-git_token: "ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-
----
+Builds on Debian / Ubuntu Distro
+group_vars all.yml is the list of defaults for alteration w/ template file.

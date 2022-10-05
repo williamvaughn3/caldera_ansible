@@ -1,0 +1,11 @@
+---
+
+- name: Remove file (delete file)
+  ansible.builtin.file:
+    path: "{{ caldera_install_root_dir }}/caldera/conf/default.yml"
+    state: absent
+
+- name: Create file from template
+  ansible.builtin.template:
+    src: default_facts.yml.j2
+    dest: "{{ caldera_install_root_dir }}/caldera/conf/default.yml"
