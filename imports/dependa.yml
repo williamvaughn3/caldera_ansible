@@ -50,18 +50,45 @@
   until: status is success or ('Failed to lock apt for exclusive operation' not in status.msg and '/var/lib/dpkg/lock' not in status.msg)
   ignore_errors: true
 
-
-
 - name: Status of Remove and update
   debug:
     var: status
 
 - name: install go
-  shell: 'curl -L https://go.dev/dl/go1.19.2.linux-amd64.tar.gz -o go1.19.2.linux-amd64.tar.gz; rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz;'
+  shell: 'curl -L https://go.dev/dl/go1.19.2.linux-amd64.tar.gz -o go1.19.2.linux-amd64.tar.gz; rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.2.linux-amd64.tar.gz;'
 
-- name: Export PATH and GOPATH
-  shell: "echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile; echo 'export GOPATH=$HOME/gopath' >> /etc/profile; source /etc/profile"
+- name: Check if Go Path already exists
+  stat:
+    path: "/etc/profile.d/gopath.sh"
+  register: exist_check1
+
+- name: Remove Path if Exists
+  shell: "rm -rf /etc/profile.d/gopath.sh"
+  become: true
+  when: exist_check1.stat.exists
+
+- name: Check if Go Path already exists
+  stat:
+    path: "/etc/profile.d/gopath2.sh"
+  register: exist_check2
+
+- name: Remove Path if Exists
+  shell: "rm -rf /etc/profile.d/gopath2.sh"
+  become: true
+  when: exist_check2.stat.exists
 
 
+- name: Add go to path.
+  copy:
+    dest: /etc/profile.d/gopath.sh
+    content: 'PATH=$PATH:{{ go_path }}'
+
+- name: Add go home to path.
+  copy:
+    dest: /etc/profile.d/gopath2.sh
+    content: '{{ go_home_path }}'
+
+- name: Source Both PATH files
+  shell:  source /etc/profile.d/gopath.sh && source /etc/profile.d/gopath2.sh
 ...
 
