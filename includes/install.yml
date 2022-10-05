@@ -1,4 +1,7 @@
 ---
+  - name: Import Vars
+    include_vars:
+      file: group_vars/all.yml
 
   - name: Check if Caldera already exists
     stat:
