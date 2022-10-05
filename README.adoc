@@ -1,4 +1,14 @@
 === Caldera Installation with Pathfinder and Build Plugin Playbook ===
 
+Ansible installation of an awesome tool by Mitre:
+
+https://github.com/mitre/caldera
+
+with Plugin Pathfinder:
+
+https://github.com/center-for-threat-informed-defense/caldera_pathfinder
+
 Builds on Debian / Ubuntu Distro
 group_vars all.yml is the list of defaults for alteration w/ template file.
+
+
