@@ -7,3 +7,10 @@
     args:
       chdir: "{{ caldera_install_root_dir }}/caldera/plugins"
     tags: [ caldera, git, clone ]
+
+  - name: command move caldera_pathfinder to caldera/plugins
+    become: yes
+    shell: mv caldera_pathfinder pathfinder
+    args:
+      chdir: "{{ caldera_install_root_dir }}/caldera/plugins"
+    tags: [ caldera, git, clone ]
