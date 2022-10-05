@@ -39,7 +39,11 @@
       include_tasks: includes/launch.yml
       tags: [ launch ]
 
-      
+    - name: Get Password
+      shell: "/bin/cat {{ caldera_install_root_dir }}/caldera/conf/local.yml | grep 'red:'}"
+      register: details
 
+    - name: Print Details 
+      debug: msg="{{ details.stdout.replace('\\"',':').split('\n') }}"
 
 
