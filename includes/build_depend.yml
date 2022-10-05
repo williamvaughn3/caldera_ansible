@@ -70,8 +70,10 @@
 
 - name: MSF Console Install
   become: yes
-  shell: $ curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
-
+  shell: 'curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall'
+  args:
+    chdir: /opt
+    
 - name: Nmap installation
   become: yes
   apt: 
@@ -80,3 +82,5 @@
   retries: 100
   until: status is success or ('Failed to lock apt for exclusive operation' not in status.msg and '/var/lib/dpkg/lock' not in status.msg)
   
+
+
