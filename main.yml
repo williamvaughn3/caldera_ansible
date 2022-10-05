@@ -29,7 +29,6 @@
 
     - name: Create SSH Keypair In Conf File if not Present
       include_tasks: includes/ssh_keygen.yml
-      when: key.stat.exists == false
       tags: [ ssh_keygen ]
 
     - name: Setup Default File
