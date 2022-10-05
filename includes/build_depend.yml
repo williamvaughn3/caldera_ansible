@@ -80,4 +80,3 @@
   retries: 100
   until: status is success or ('Failed to lock apt for exclusive operation' not in status.msg and '/var/lib/dpkg/lock' not in status.msg)
   
-- name: 
