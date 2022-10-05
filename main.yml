@@ -15,7 +15,7 @@
       tags: [ dependas ]
 
     - name: build plugin depend install
-      include_tasks: imports/build_depend.yml
+      include_tasks: includes/build_depend.yml
       tags: [ build_plugin_depend ]
 
     - name: Clone Caldera
