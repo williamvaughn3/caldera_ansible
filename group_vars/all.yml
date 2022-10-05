@@ -4,6 +4,8 @@ host_key_checking: false
 timezone: America/New_York
 ansible_python_interpreter: '/usr/bin/python3'
 caldera_install_root_dir: '/opt'
+go_path: '/usr/local/go/bin'
+go_home_path: 'export GOPATH=$HOME/gopath'
 
 # Set Defaults 
 ability_refresh: 60
