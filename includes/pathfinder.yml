@@ -1,0 +1,9 @@
+---
+  
+  - name: Git caldera
+    become: yes
+    shell: git clone https://github.com/center-for-threat-informed-defense/caldera_pathfinder.git --recursive
+    register: download
+    args:
+      chdir: "{{ caldera_install_root_dir }}/caldera/plugins"
+    tags: [ caldera, git, clone ]

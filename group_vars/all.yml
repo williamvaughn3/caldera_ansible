@@ -1,0 +1,43 @@
+---
+
+host_key_checking: false
+timezone: America/New_York
+ansible_python_interpreter: /usr/bin/python3
+caldara_install_root_dir: /opt
+
+# Set Defaults 
+ability_refresh: 60
+api_key_blue: BLUEADMIN123
+api_key_red: ADMIN123
+app_contact_dns_domain: caldera.local
+app_contact_dns_socket: 0.0.0.0:8853
+app_contact_gist: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
+app_contact_html: /weather
+app_contact_http: http://0.0.0.0:8888
+app_contact_slack_api_key: SLACK_TOKEN
+app_contact_slack_bot_id: SLACK_BOT_ID
+app_contact_slack_channel_id: SLACK_CHANNEL_ID
+app_contact_tunnel_ssh_host_key_file: caldera/conf/ssh_keys/id_rsa 
+app_contact_tunnel_ssh_host_key_passphrase: 
+app_contact_tunnel_ssh_socket: 0.0.0.0:8022
+app_contact_tunnel_ssh_user_name: sandcat
+app_contact_tunnel_ssh_user_password: s4ndc4t!
+app_contact_ftp_host: 0.0.0.0
+app_contact_ftp_port: 2222
+app_contact_ftp_pword: caldera
+app_contact_ftp_server_dir: ftp_dir
+app_contact_ftp_user: caldera_user
+app_contact_tcp: 0.0.0.0:7010
+app_contact_udp: 0.0.0.0:7011
+app_contact_websocket: 0.0.0.0:7012
+objects_planners_default: atomic
+crypt_salt: REPLACE_WITH_RANDOM_VALUE
+encryption_key: ADMIN123
+exfil_dir: /tmp/caldera
+host: 0.0.0.0
+plugins: [access,atomic,build,compass,debrief,pathfinder,fieldmanual,manx,response,sandcat,stockpile]
+contact_port: 8888
+reports_dir: /tmp
+auth_login_handler_module: default
+
+...

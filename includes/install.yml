@@ -1,0 +1,52 @@
+---
+
+  - name: Check if Caldera already exists
+    stat:
+      path: "{{ caldera_install_root_dir }}/caldera"
+    register: exist_check
+
+  - name: Caldera Exists -- Removing Directory
+    shell: "rm -rf {{ caldera_install_root_dir }}/caldera"
+    become: true
+    when: exist_check.stat.exists
+
+  - name: Git /caldera
+    become: yes
+    shell: git clone https://github.com/mitre/caldera.git --recursive
+    register: download
+    args:
+      chdir: "{{ caldera_install_root_dir }}"
+    tags: [ /caldera, git, clone ]
+
+  - name: install pip install
+    become: yes
+    shell: "python3 -m pip install -U pip"
+    tags: [ pip, user ]
+
+  - name: append comment to "{{ caldera_install_root_dir }}"/caldera/requirements.txt
+    become: yes
+    shell: echo "# Pathfinder Reqs-Inserted w/Ansible" >> "{{ caldera_install_root_dir }}"/caldera/requirements.txt
+
+  - name: add pathfinder requirements to "{{ caldera_install_root_dir }}"/caldera/requirements.txt
+    become: yes
+    lineinfile:
+      path: "{{ caldera_install_root_dir }}/caldera/requirements.txt"
+      line: "{{ item }}"
+      insertafter: "# Pathfinder Reqs-Inserted w/Ansible"
+    loop:
+      - " "
+      - "networkx==2.7.1"
+      - "pydantic==1.9.0"
+
+  - name: install requirements
+    become: yes
+    pip:
+      requirements: "{{ caldera_install_root_dir }}/caldera/requirements.txt"
+      executable: pip3
+    tags: [localbuild, requirements, pip, /caldera]
+
+
+
+
+
+

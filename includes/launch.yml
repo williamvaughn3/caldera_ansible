@@ -1,0 +1,13 @@
+---
+
+  - name: launch
+    become: yes
+    shell: "cd /opt/caldera && nohup /usr/bin/python3 /opt/caldera/server.py &"
+    tags: [ launch ]
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+---
+
+- hosts: all
+  become: true
+
+  tasks:
+
+    - name: dependa install
+      become: true
+      import_tasks: imports/dependa.yml
+      tags: [ dependas ]
+
+    - name: build plugin depend install
+      become: true
+      include_tasks: imports/build_depend.yml
+      tags: [ build_plugin_depend ]
+
+    - name: Clone Caldera
+      include_tasks: includes/install.yml
+      register: result
+      tags: [ caldera ]
+
+    - name: Clone Pathfinder into caldera
+      include_tasks: includes/pathfinder.yml
+      tags: [ pathfinder ]
+
+    - name: Create SSH Keypair In Conf File if not Present
+      include_tasks: includes/ssh_keygen.yml
+      when: key.stat.exists == false
+      tags: [ ssh_keygen ]
+
+    - name: Setup Default File
+      include_tasks: includes/setup_default_file.yml
+      tags: [ setup_default ]
+
+    - name: Launch Caldera
+      include_tasks: includes/launch.yml
+      tags: [ launch ]
+
+      
+
+
+

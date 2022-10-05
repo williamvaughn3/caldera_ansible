@@ -1,0 +1,18 @@
+########################################################
+# Run commands
+########################################################
+- name: Run commands
+  ansible.builtin.shell: '{{ item }}' 
+  become: true
+  become_user: root
+  async: 45
+  poll: 0
+  with_lines:
+    - cat "files/cmds.txt" | grep -v "#"
+  args:
+    chdir: '/tmp'
+  register: cmds
+
+- name: Status out
+  debug:
+    var: cmds

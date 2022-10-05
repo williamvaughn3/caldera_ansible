@@ -1,0 +1,101 @@
+---
+
+  - name: Add GPG
+    become: true
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+    tags: [ skip, docker, install, gpg key]
+
+  - name: Verify gpg key with the fingerprint
+    become: yes
+    apt_key:
+      id: 0EBFCD88
+      state: present
+    tags: [ skip, docker, verify, gpg key ]
+
+  - name: Configure Docker for ubuntu stable repository
+    become: yes
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+      state: present
+    tags: [ skip, docker, repo ]
+
+  - name: Install Docker Stuffs
+    become: true
+    apt:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    register: status
+    retries: 100
+    until: status is success or ('Failed to lock apt for exclusive operation' not in status.msg and '/var/lib/dpkg/lock' not in status.msg)
+    tags: [ skip, docker, install, dependency]
+
+  - name: Add ansible user to "docker" group
+    become: true
+    user:
+      name: "{{ ansible_user }}"
+      group: "docker"
+      append: yes
+    tags: [ skip, docker, group_membership ]
+    
+  - name: Docker_State_Check
+    become: true
+    service:
+      name: docker
+      state: started
+      enabled: yes
+    register: state
+    tags: [ docker, state, validate]
+
+  - name: Check if Caldera already exists
+    stat:
+      path: /opt/caldera
+    register: exist_checkwinsvr4lan2
+  
+  - name: Caldera Exists Removing Current Configuation
+    shell: "rm -rf /opt/caldera"
+    become: true
+    when: exist_check.stat.exists
+
+  - name: Git caldera
+    become: yes
+    shell: git clone https://github.com/mitre/caldera.git --recursive 
+    register: download
+    args:
+      chdir: /opt/
+    tags: [ caldera, git, clone ]
+  
+
+  - name: install pip install
+    become: yes
+    shell: "pip install -U pip"
+    tags: [ pip, user ]
+
+  - name: new dockerfile
+    become: true
+    copy: 
+      src: templates/Dockerfile
+      dest: /opt/caldera/Dockerfile
+      mode: 0755
+      backup: yes
+    register: copy
+    tags: [ skip, Dockerfile, caldera, replace ]
+
+  
+  - name: Install Docker Deamon
+    become: yes
+    shell: systemctl enable docker.service && systemctl enable containerd.service
+    tags: [ skip, daemon ]
+
+  - name: build_image because mikeluvsginger
+    become: true
+    shell: "cd {{ caldara_install_root_dir }}/caldera/ && docker build --network=host --build-arg WIN_BUILD=true -t ubuntu:focal -d ."
+    register: status
+  - debug:
+      var: status
+    tags: [ docker-build, skip ]
