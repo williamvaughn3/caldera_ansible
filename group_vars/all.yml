@@ -19,7 +19,7 @@ app_contact_http: 'http://0.0.0.0:8888'
 app_contact_slack_api_key: SLACK_TOKEN
 app_contact_slack_bot_id: SLACK_BOT_ID
 app_contact_slack_channel_id: SLACK_CHANNEL_ID
-app_contact_tunnel_ssh_host_key_file: 'caldera/conf/ssh_keys/id_rsa '
+app_contact_tunnel_ssh_host_key_file: 'caldera/conf/ssh_keys/id_rsa'
 app_contact_tunnel_ssh_host_key_passphrase: '' 
 app_contact_tunnel_ssh_socket: '0.0.0.0:8022'
 app_contact_tunnel_ssh_user_name: sandcat
