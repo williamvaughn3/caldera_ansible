@@ -5,6 +5,10 @@
 
   tasks:
 
+    - name: Import Vars
+      include_vars:
+        file: group_vars/main.yml
+
     - name: dependa install
       become: true
       import_tasks: imports/dependa.yml
