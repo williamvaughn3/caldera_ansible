@@ -7,7 +7,7 @@
 
     - name: Import Vars
       include_vars:
-        file: group_vars/main.yml
+        file: group_vars/all.yml
 
     - name: dependa install
       become: true
