@@ -3,7 +3,7 @@
 host_key_checking: false
 timezone: America/New_York
 ansible_python_interpreter: '/usr/bin/python3'
-caldara_install_root_dir: '/opt'
+caldera_install_root_dir: '/opt'
 
 # Set Defaults 
 ability_refresh: 60
