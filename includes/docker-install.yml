@@ -55,7 +55,7 @@
   - name: Check if Caldera already exists
     stat:
       path: /opt/caldera
-    register: exist_checkwinsvr4lan2
+    register: exist_check
   
   - name: Caldera Exists Removing Current Configuation
     shell: "rm -rf /opt/caldera"

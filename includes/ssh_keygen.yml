@@ -1,10 +1,11 @@
 ---
 
-  - name: check if id_rsa exists
-    become: true
-    stat:
-      path: "{{ caldera_install_root_dir }}/caldera/conf/ssh_keys"
-    register: key
+  # Key should never exist due to check and deletes
+  # - name: check if id_rsa exists
+  #   become: true
+  #   stat:
+  #     path: "{{ caldera_install_root_dir }}/caldera/conf/ssh_keys"
+  #   register: key
 
   - name: Generate an OpenSSH keypair
     community.crypto.openssh_keypair:
