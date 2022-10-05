@@ -89,6 +89,6 @@
     content: '{{ go_home_path }}'
 
 - name: Source Both PATH files
-  shell:  source /etc/profile.d/gopath.sh && source /etc/profile.d/gopath2.sh
+  shell:  '/bin/bash -c "source /etc/profile.d/gopath.sh"; /bin/bash -c "source /etc/profile.d/gopath2.sh"'
 ...
 
