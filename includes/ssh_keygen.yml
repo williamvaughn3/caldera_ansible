@@ -9,4 +9,4 @@
 
   - name: Generate an OpenSSH keypair
     community.crypto.openssh_keypair:
-      path: "{{ caldera_install_root_dir }}/caldera/conf/ssh_keys"
+      path: "{{ caldera_install_root_dir }}/caldera/conf/ssh_keys/id_rsa"
