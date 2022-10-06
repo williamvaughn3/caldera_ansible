@@ -14,6 +14,11 @@ group_vars all.yml is the list of defaults for alteration w/ template file.
 ==== OpenSSL Error ====
 Occasionally, and randomly there will be an issue that is caused by OpenSSL and Pip clashing.
 
+Resolution, is quick and easy.
+
+SSH into the box and execute 
+
+```sudo pip3 install --force-reinstall pyopenssl```
 
 Known errors
 [source, json]
@@ -30,9 +35,5 @@ Known errors
 }
 ----
 
-Resolution, is quick and easy.
 
-SSH into the box and execute 
-
-```sudo pip3 install --force-reinstall pyopenssl```
 
