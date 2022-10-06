@@ -29,7 +29,6 @@
     - aptitude
     - openssh-server
     - openssl 
-    - shellinabox
     - python3
     - python3-pip
   register: status
