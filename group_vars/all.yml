@@ -37,7 +37,7 @@ crypt_salt: REPLACE_WITH_RANDOM_VALUE
 encryption_key: ADMIN123
 exfil_dir: '/tmp/caldera'
 host: '0.0.0.0'
-plugins: [access,atomic,builder,compass,debrief,pathfinder,fieldmanual,manx,response,sandcat,stockpile]
+plugins: [access,atomic,builder,compass,debrief,pathfinder,fieldmanual,manx,response,sandcat,stockpile,humans] #gameboard, training
 contact_port: 8888
 reports_dir: '/tmp'
 auth_login_handler_module: default

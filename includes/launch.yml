@@ -1,21 +1,20 @@
 ---
 
-  - name: "check if {{ caldera_install_root_dir }}/caldera.pid exists"
-    stat: 
-      path: "{{ caldera_install_root_dir }}/caldera.pid"
-    register: caldera_pid_check
-    tags: [ launch, pid_check ]
+  - name: "Check if the server is running"
+    raw: |
+      "ps -efw | grep server.py | grep -v grep" 
+    register: server_running
+    tags: [ launch, check_running ]
 
 
   - name: kill process if pid file exists
-    shell: "kill -9 $(cat {{ caldera_install_root_dir }}/caldera.pid)"
-    when: caldera_pid_check.stat.exists
-    tags: [ launch, pid_check ]
+    shell: "kill -9 python3"
+    when: server_running.stdout.find("server.py") != -1
+    tags: [ launch, check_running ]
     
   - name: launch and register the stander out and error
     raw: |
-      "cd {{ caldera_install_root_dir }}/caldera; nohup /usr/bin/python3 server.py --insecure & ; \ 
-      echo $! > {{ caldera_install_root_dir }}/caldera.pid "
+      "cd {{ caldera_install_root_dir }}/caldera && nohup /usr/bin/python3 server.py --insecure &"
     tags: [ launch, server, write_pid ]
 
   - name: pause for 20 seconds
@@ -25,13 +24,13 @@
 
   - name: "Check if the server is running"
     raw: |
-      "ps -ef | grep server.py | grep -v grep"
-    register: server_running
+      "ps -efw | grep server.py | grep -v grep" 
+    register: server_running_post
     tags: [ launch, check_running ]
 
   - name: debug the output
     debug:
-      var: server_running
+      var: server_running_post
     tags: [ launch_output, print_output ]
 
   - name: "Register nohup.out"
