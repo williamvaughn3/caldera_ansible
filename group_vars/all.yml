@@ -37,12 +37,12 @@ crypt_salt: REPLACE_WITH_RANDOM_VALUE
 encryption_key: ADMIN123
 exfil_dir: '/tmp/caldera'
 host: '0.0.0.0'
-plugins: [access,atomic,builder,compass,debrief,pathfinder,fieldmanual,manx,response,sandcat,stockpile,humans] #gameboard, training
+plugins: [access,atomic,builder,compass,debrief,pathfinder,fieldmanual,manx,response,sandcat,stockpile,humans] # gameboard, training
 contact_port: 8888
 reports_dir: '/tmp'
 auth_login_handler_module: default
 caldera_blue_password: yourmyboyblue
-caldera_admin_password: 'itstheadminpassword123!!'
+caldera_admin_password: 'mikeluvzginger4eva'
 caldera_red_password: "MITRE_CALDERA_R0cKz!!"
 
 ...

@@ -21,7 +21,7 @@
       chdir: "{{ caldera_install_root_dir }}"
     tags: [ /caldera, git, clone ]
 
-  - name: install pip install
+  - name: install pip install from the redundant dept of redunantcy
     become: yes
     shell: "python3 -m pip install -U pip"
     tags: [ pip, user ]
@@ -41,7 +41,7 @@
       - "networkx==2.7.1"
       - "pydantic==1.9.0"
 
-  - name: install requirements
+  - name: install requirements, mikeluvzginger
     become: yes
     pip:
       requirements: "{{ caldera_install_root_dir }}/caldera/requirements.txt"

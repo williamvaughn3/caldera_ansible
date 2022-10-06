@@ -1,11 +1,9 @@
 ---
-
   - name: "Check if the server is running"
     raw: |
       "ps -efw | grep server.py | grep -v grep" 
     register: server_running
     tags: [ launch, check_running ]
-
 
   - name: kill process
     shell: "kill -9 python3"
@@ -45,9 +43,10 @@
     tags: [ launch_output ]
 
   - name: Fix Broken openssl
-    pip3:
+    pip:
       name: pyopenssl
       state: latest
       force: yes
+
 ...
 
