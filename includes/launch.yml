@@ -1,10 +1,21 @@
 ---
 
+  - name: "check if {{ caldera_install_root_dir }}/caldera.pid exists"
+    stat: 
+      path: "{{ caldera_install_root_dir }}/caldera.pid"
+    register: caldera_pid_exists
+    tags: [ launch, pid_check ]
+
+  - name: kill process if pid file exists
+    shell: "kill -9 $(cat {{ caldera_install_root_dir }}/caldera.pid)"
+    when: caldera_pid_check.stat.exists
+    tags: [ launch, pid_check ]
+    
   - name: launch and register the stander out and error
     become: yes
     raw: |
       "cd /opt/caldera;
-      nohup /usr/bin/python3 /opt/caldera/server.py --insecure &"
+      nohup /usr/bin/python3 /opt/caldera/server.py --insecure &;" "echo $! > {{ caldera_install_root_dir }}/caldera.pid"
     tags: [ launch ]
 
   - Name: wait for the server to start
