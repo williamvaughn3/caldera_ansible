@@ -40,10 +40,9 @@
       tags: [ launch ]
 
     - name: Get Password
-      shell: "/bin/cat {{ caldera_install_root_dir }}/caldera/conf/local.yml | grep 'red:'"
+      shell: "/bin/bash -c 'sleep 120s'; /bin/cat {{ caldera_install_root_dir }}/caldera/conf/local.yml | grep 'red:'"
       register: details
 
     - name: Print Details 
       debug: msg="Red PassWord/:{{ details.stdout.replace('\\"',':').split('\n') }}"
-
 

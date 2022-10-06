@@ -88,6 +88,12 @@
     dest: /etc/profile.d/gopath2.sh
     content: '{{ go_home_path }}'
 
+- name: symlink to go
+  file:
+    src: /usr/local/go/bin/go
+    dest: /usr/bin/go
+    state: link
+
 - name: Source Both PATH files
   shell:  '/bin/bash -c "source /etc/profile.d/gopath.sh"; /bin/bash -c "source /etc/profile.d/gopath2.sh"'
 ...
