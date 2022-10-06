@@ -8,13 +8,13 @@
 
   - name: kill process if pid file exists
     shell: "kill -9 $(cat {{ caldera_install_root_dir }}/caldera.pid)"
-    when: caldera_pid_check.stat.exists
+    when: caldera_pid_check.stat.exists == True
     tags: [ launch, pid_check ]
     
   - name: launch and register the stander out and error
     raw: |
-      "cd /opt/caldera;
-      nohup /usr/bin/python3 /opt/caldera/server.py --insecure &;" "echo $! > {{ caldera_install_root_dir }}/caldera.pid"
+      "cd {{ caldera_install_root_dir }}/caldera;
+      nohup /usr/bin/python3 {{ caldera_install_root_dir }}/caldera/server.py --insecure &;" "echo $! > {{ caldera_install_root_dir }}/caldera.pid"
     tags: [ launch, server, write_pid ]
 
   - name: pause for 20 seconds
@@ -44,6 +44,5 @@
       var: nohup_out
     tags: [ launch_output ]
 
-
-
 ...
+
