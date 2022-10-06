@@ -44,6 +44,5 @@
       register: details
 
     - name: Print Details 
-      debug: msg="{{ details.stdout.replace('\\"',':').split('\n') }}"
-
-
+      debug: "msg=PassWord: {{ details.stdout.replace('\\"',':').split('\n') }}"
+      tags: [ print_details ]
