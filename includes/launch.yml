@@ -12,31 +12,28 @@
     tags: [ launch, pid_check ]
     
   - name: launch and register the stander out and error
-    become: yes
     raw: |
       "cd /opt/caldera;
       nohup /usr/bin/python3 /opt/caldera/server.py --insecure &;" "echo $! > {{ caldera_install_root_dir }}/caldera.pid"
-    tags: [ launch ]
+    tags: [ launch, server, write_pid ]
 
-  - Name: wait for the server to start
-    wait_for:
-      port: 8888
-      host: 127.0.0.1
+  - name: pause for 20 seconds
+    pause:
+      seconds: 20
+    tags: [ launch, pause ]
 
   - name: "Check if the server is running"
-    become: yes
     raw: |
       "ps -ef | grep server.py | grep -v grep"
     register: server_running
-    tags: [ launch ]
+    tags: [ launch, check_running ]
 
   - name: debug the output
     debug:
       var: server_running
-    tags: [ launch_output ]
+    tags: [ launch_output, print_output ]
 
   - name: "Register nohup.out"
-    become: yes
     raw: |
       "cat {{ caldera_install_root_dir }}/caldera/nohup.out"
     register: nohup_out
