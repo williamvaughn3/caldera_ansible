@@ -3,11 +3,11 @@
 - hosts: all
   become: true
 
-
-  pre_tasks:
+  tasks:
 
     - name: "Check if /usr/bin/python exists"
-      stat: '/usr/bin/python'
+      stat:
+        path: '/usr/bin/python'
       register: python_stat
 
     - name: symlink /usr/bin/python -> /usr/bin/python3
@@ -16,8 +16,6 @@
           ln --symbolic /usr/bin/python3 /usr/bin/python; 
         fi
       when: python_stat.stat.exists == false
-      
-  tasks:
 
     - name: Import Vars
       include_vars:
