@@ -11,9 +11,9 @@ go_home_path: 'export GOPATH=$HOME/gopath'
 ability_refresh: 60
 api_key_blue: BLUEADMIN123
 api_key_red: ADMIN123
-app_contact_dns_domain: caldera.local
+app_contact_dns_domain: 505cve.bde
 app_contact_dns_socket: '0.0.0.0:8853'
-app_contact_gist: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
+app_contact_gist: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  
 app_contact_html: '/weather'
 app_contact_http: 'http://0.0.0.0:8888'
 app_contact_slack_api_key: SLACK_TOKEN
@@ -25,7 +25,7 @@ app_contact_tunnel_ssh_socket: '0.0.0.0:8022'
 app_contact_tunnel_ssh_user_name: sandcat
 app_contact_tunnel_ssh_user_password: s4ndc4t!
 app_contact_ftp_host: '0.0.0.0'
-app_contact_ftp_port: 2222
+app_contact_ftp_port: 2002
 app_contact_ftp_pword: caldera
 app_contact_ftp_server_dir: ftp_dir
 app_contact_ftp_user: caldera_user

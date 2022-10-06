@@ -1,6 +1,7 @@
 ---
 
 - name: "Update Cache"
+  become: true
   apt:
     update_cache: yes
     cache_valid_time: 3600
@@ -9,6 +10,7 @@
   until: status is success or ('Failed to lock apt for exclusive operation' not in status.msg and '/var/lib/dpkg/lock' not in status.msg)
 
 - name: "Upgrade all packages to the latest version"
+  become: true
   apt:
     name: "*"
     state: latest
@@ -18,6 +20,7 @@
   until: status is success or ('Failed to lock apt for exclusive operation' not in status.msg and '/var/lib/dpkg/lock' not in status.msg)
 
 - name: "Install Common Apps"
+  become: true
   apt:
     name: "{{ item }}"
     state: present    
@@ -42,6 +45,7 @@
     var: status
 
 - name: "Autoremove unused dependency packages"
+  become: true
   apt:
     autoremove: yes
     update_cache: yes
@@ -60,6 +64,7 @@
   register: go_exists
 
 - name: Remove symlink if exists
+  become: true
   file:
     path: /usr/bin/go
     state: absent
@@ -71,34 +76,40 @@
   register: go2_exists
 
 - name: Remove symlink if exists
+  become: true
   file:
     path: /usr/local/go
     state: absent
   when: "go2_exists == True"
 
 - name: Check if Go Path already exists
+  become: true
   stat:
     path: "/etc/profile.d/gopath.sh"
   register: exist_check1
 
 - name: Remove Path if Exists
+  become: true
   file: 
     path: "/etc/profile.d/gopath.sh"
     state: absent
   when: exist_check1.stat.exists
 
 - name: Check if Go Path already exists
+  become: true
   stat:
     path: "/etc/profile.d/gopath2.sh"
   register: exist_check2
 
 - name: Remove Path if Exists
+  become: true
   file: 
     path: "/etc/profile.d/gopath2.sh"
     state: absent
   when: exist_check2.stat.exists
 
 - name: Unarchive a file that needs to be downloaded (added in 2.0)
+  become: true
   unarchive:
     src: https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
     dest: /usr/local/go
@@ -106,18 +117,21 @@
     mode: 0755
 
 - name: Add Go to path.
+  become: true
   copy:
     dest: /etc/profile.d/gopath.sh
-    content: 'PATH=$PATH:{{ go_path }}'
+    content: "PATH=$PATH:{{ go_path }}"
     mode: 0755
 
 - name: Add go home to path.
+  become: true
   copy:
     dest: /etc/profile.d/gopath2.sh
-    content: '{{ go_home_path }}'
+    content: "{{ go_home_path }}"
     mode: 0755
 
 - name: symlink to go
+  become: true
   file:
     src: /usr/local/go/bin/go
     dest: /usr/bin/go
@@ -125,6 +139,7 @@
     mode: 0755
 
 - name: add {{go_path}} to path
+  become: true
   lineinfile:
     dest: /etc/environment
     state: present
@@ -133,4 +148,3 @@
     line: "PATH={{go_path}}/:$PATH"
 
 ...
-
