@@ -103,8 +103,9 @@
     src: https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
     dest: /usr/local/go
     remote_src: yes
+    mode: 0755
 
-- name: Add go to path.
+- name: Add Go to path.
   copy:
     dest: /etc/profile.d/gopath.sh
     content: 'PATH=$PATH:{{ go_path }}'
@@ -123,7 +124,13 @@
     state: link
     mode: 0755
 
-- name: Source Both PATH files
-  shell:  '/bin/bash -c "source /etc/profile.d/gopath.sh"; /bin/bash -c "source /etc/profile.d/gopath2.sh"'
+- name: add {{go_path}} to path
+  lineinfile:
+    dest: /etc/environment
+    state: present
+    backrefs: yes
+    regexp: 'PATH=(["])((?!.?{{go_path}}).?)(["])$'
+    line: "PATH={{go_path}}/:$PATH"
+
 ...
 
