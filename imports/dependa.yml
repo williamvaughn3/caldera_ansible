@@ -54,8 +54,27 @@
   debug:
     var: status
 
-- name: install go
-  shell: 'curl -L https://go.dev/dl/go1.19.2.linux-amd64.tar.gz -o go1.19.2.linux-amd64.tar.gz; rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.2.linux-amd64.tar.gz;'
+- name: check if symlink at /usr/bin/go exists
+  stat:
+    path: /usr/bin/go
+  register: go_exists
+
+- name: Remove symlink if exists
+  file:
+    path: /usr/bin/go
+    state: absent
+  when: "go_exists == True"
+
+- name: check if /usr/local/go exists
+  stat:
+    path: /usr/local/go/
+  register: go2_exists
+
+- name: Remove symlink if exists
+  file:
+    path: /usr/local/go
+    state: absent
+  when: "go2_exists == True"
 
 - name: Check if Go Path already exists
   stat:
@@ -63,8 +82,9 @@
   register: exist_check1
 
 - name: Remove Path if Exists
-  shell: "rm -rf /etc/profile.d/gopath.sh"
-  become: true
+  file: 
+    path: "/etc/profile.d/gopath.sh"
+    state: absent
   when: exist_check1.stat.exists
 
 - name: Check if Go Path already exists
@@ -73,26 +93,35 @@
   register: exist_check2
 
 - name: Remove Path if Exists
-  shell: "rm -rf /etc/profile.d/gopath2.sh"
-  become: true
+  file: 
+    path: "/etc/profile.d/gopath2.sh"
+    state: absent
   when: exist_check2.stat.exists
 
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
+  unarchive:
+    src: https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
+    dest: /usr/local/go
+    remote_src: yes
 
 - name: Add go to path.
   copy:
     dest: /etc/profile.d/gopath.sh
     content: 'PATH=$PATH:{{ go_path }}'
+    mode: 0755
 
 - name: Add go home to path.
   copy:
     dest: /etc/profile.d/gopath2.sh
     content: '{{ go_home_path }}'
+    mode: 0755
 
 - name: symlink to go
   file:
     src: /usr/local/go/bin/go
     dest: /usr/bin/go
     state: link
+    mode: 0755
 
 - name: Source Both PATH files
   shell:  '/bin/bash -c "source /etc/profile.d/gopath.sh"; /bin/bash -c "source /etc/profile.d/gopath2.sh"'
