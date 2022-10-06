@@ -20,6 +20,8 @@ SSH into the box and execute
 
 ```sudo pip3 install --force-reinstall pyopenssl```
 
+Possibly need to add ansible pip3 force reinstall at end.
+
 Known errors
 [source, json]
 ----

@@ -3,12 +3,13 @@
   - name: "check if {{ caldera_install_root_dir }}/caldera.pid exists"
     stat: 
       path: "{{ caldera_install_root_dir }}/caldera.pid"
-    register: caldera_pid_exists
+    register: caldera_pid_check
     tags: [ launch, pid_check ]
+    ignore_errors: true
 
   - name: kill process if pid file exists
     shell: "kill -9 $(cat {{ caldera_install_root_dir }}/caldera.pid)"
-    when: caldera_pid_check.stat.exists == True
+    when: caldera_pid_check.stat.exists
     tags: [ launch, pid_check ]
     
   - name: launch and register the stander out and error
@@ -44,5 +45,10 @@
       var: nohup_out
     tags: [ launch_output ]
 
+  - name: Fix Broken openssl
+    pip3:
+      name: pyopenssl
+      state: latest
+      force: yes
 ...
 
