@@ -8,34 +8,8 @@ with Plugin Pathfinder:
 
 https://github.com/center-for-threat-informed-defense/caldera_pathfinder
 
-Builds on Debian / Ubuntu Distro
+Builds on Ubuntu Distro
 group_vars all.yml is the list of defaults for alteration w/ template file.
-
-==== OpenSSL Error ====
-Occasionally, and randomly there will be an issue that is caused by OpenSSL and Pip clashing.
-
-Resolution, is quick and easy.
-
-SSH into the box and execute 
-
-```sudo pip3 install --force-reinstall pyopenssl```
-
-Possibly need to add ansible pip3 force reinstall at end.
-
-Known errors
-[source, json]
-----
-{
-  "module_stdout": "Traceback (most recent call last):\r\n  File \"/home/instructor/.ansible/tmp/ansible-tmp-1665023767.9541962-75870-186035203014767/AnsiballZ_apt.py\", line 102, in <module>\r\n    _ansiballz_main()\r\n  File \"/home/instructor/.ansible/tmp/ansible-tmp-1665023767.9541962-75870-186035203014767/AnsiballZ_apt.py\", line 94, in _ansiballz_main\r\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\r\n  File \"/home/instructor/.ansible/tmp/ansible-tmp-1665023767.9541962-75870-186035203014767/AnsiballZ_apt.py\", line 40, in invoke_module\r\n    runpy.run_module(mod_name='ansible.modules.packaging.os.apt', init_globals=None, run_name='__main__', alter_sys=True)\r\n  File \"/usr/lib/python3.8/runpy.py\", line 207, in run_module\r\n    return _run_module_code(code, init_globals, run_name, mod_spec)\r\n  File \"/usr/lib/python3.8/runpy.py\", line 97, in _run_module_code\r\n    _run_code(code, mod_globals, init_globals,\r\n  File \"/usr/lib/python3.8/runpy.py\", line 87, in _run_code\r\n    exec(code, run_globals)\r\n  File \"/tmp/ansible_apt_payload_0iajyh35/ansible_apt_payload.zip/ansible/modules/packaging/os/apt.py\", line 278, in <module>\r\n  File \"<frozen importlib._bootstrap>\", line 991, in _find_and_load\r\n  File \"<frozen importlib._bootstrap>\", line 975, in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 655, in _load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 618, in _load_backward_compatible\r\n  File \"<frozen zipimport>\", line 259, in load_module\r\n  File \"/tmp/ansible_apt_payload_0iajyh35/ansible_apt_payload.zip/ansible/module_utils/urls.py\", line 99, in <module>\r\n  File \"/usr/local/lib/python3.8/dist-packages/urllib3/contrib/pyopenssl.py\", line 50, in <module>\r\n    import OpenSSL.SSL\r\n  File \"/usr/lib/python3/dist-packages/OpenSSL/__init__.py\", line 8, in <module>\r\n    from OpenSSL import crypto, SSL\r\n  File \"/usr/lib/python3/dist-packages/OpenSSL/crypto.py\", line 1553, in <module>\r\n    class X509StoreFlags(object):\r\n  File \"/usr/lib/python3/dist-packages/OpenSSL/crypto.py\", line 1573, in X509StoreFlags\r\n    CB_ISSUER_CHECK = _lib.X509_V_FLAG_CB_ISSUER_CHECK\r\nAttributeError: module 'lib' has no attribute 'X509_V_FLAG_CB_ISSUER_CHECK'\r\n",
-  "module_stderr": "Shared connection to 10.13.38.4 closed.\r\n",
-  "exception": "Traceback (most recent call last):\r\n  File \"/home/instructor/.ansible/tmp/ansible-tmp-1665023767.9541962-75870-186035203014767/AnsiballZ_apt.py\", line 102, in <module>\r\n    _ansiballz_main()\r\n  File \"/home/instructor/.ansible/tmp/ansible-tmp-1665023767.9541962-75870-186035203014767/AnsiballZ_apt.py\", line 94, in _ansiballz_main\r\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\r\n  File \"/home/instructor/.ansible/tmp/ansible-tmp-1665023767.9541962-75870-186035203014767/AnsiballZ_apt.py\", line 40, in invoke_module\r\n    runpy.run_module(mod_name='ansible.modules.packaging.os.apt', init_globals=None, run_name='__main__', alter_sys=True)\r\n  File \"/usr/lib/python3.8/runpy.py\", line 207, in run_module\r\n    return _run_module_code(code, init_globals, run_name, mod_spec)\r\n  File \"/usr/lib/python3.8/runpy.py\", line 97, in _run_module_code\r\n    _run_code(code, mod_globals, init_globals,\r\n  File \"/usr/lib/python3.8/runpy.py\", line 87, in _run_code\r\n    exec(code, run_globals)\r\n  File \"/tmp/ansible_apt_payload_0iajyh35/ansible_apt_payload.zip/ansible/modules/packaging/os/apt.py\", line 278, in <module>\r\n  File \"<frozen importlib._bootstrap>\", line 991, in _find_and_load\r\n  File \"<frozen importlib._bootstrap>\", line 975, in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 655, in _load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 618, in _load_backward_compatible\r\n  File \"<frozen zipimport>\", line 259, in load_module\r\n  File \"/tmp/ansible_apt_payload_0iajyh35/ansible_apt_payload.zip/ansible/module_utils/urls.py\", line 99, in <module>\r\n  File \"/usr/local/lib/python3.8/dist-packages/urllib3/contrib/pyopenssl.py\", line 50, in <module>\r\n    import OpenSSL.SSL\r\n  File \"/usr/lib/python3/dist-packages/OpenSSL/__init__.py\", line 8, in <module>\r\n    from OpenSSL import crypto, SSL\r\n  File \"/usr/lib/python3/dist-packages/OpenSSL/crypto.py\", line 1553, in <module>\r\n    class X509StoreFlags(object):\r\n  File \"/usr/lib/python3/dist-packages/OpenSSL/crypto.py\", line 1573, in X509StoreFlags\r\n    CB_ISSUER_CHECK = _lib.X509_V_FLAG_CB_ISSUER_CHECK\r\nAttributeError: module 'lib' has no attribute 'X509_V_FLAG_CB_ISSUER_CHECK'\r\n",
-  "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error",
-  "rc": 1,
-  "_ansible_no_log": false,
-  "attempts": 1,
-  "changed": false
-}
-----
 
 
 

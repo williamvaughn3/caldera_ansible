@@ -45,9 +45,9 @@ requirements:
     version: 3.7.0
 users:
   blue:
-    blue: admin
+    blue: "{{ caldera_blue_password }}"
   red:
-    admin: redteam
-    red: adminpassword
+    admin: "{{ caldera_admin_password }}"
+    red: "{{caldera_red_password}}"
 
 
