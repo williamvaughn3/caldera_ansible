@@ -1,0 +1,648 @@
+Identity added: /tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/artifacts/223/ssh_key_data (/tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/artifacts/223/ssh_key_data)
+Using /etc/ansible/ansible.cfg as config file
+SSH password: 
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [linsys0red]
+
+TASK [Import Vars] *************************************************************
+ok: [linsys0red] => {"ansible_facts": {"ability_refresh": 60, "ansible_python_interpreter": "/usr/bin/python3", "api_key_blue": "BLUEADMIN123", "api_key_red": "ADMIN123", "app_contact_dns_domain": "505cve.bde", "app_contact_dns_socket": "0.0.0.0:8853", "app_contact_ftp_host": "0.0.0.0", "app_contact_ftp_port": "2222", "app_contact_ftp_pword": "caldera", "app_contact_ftp_server_dir": "ftp_dir", "app_contact_ftp_user": "caldera_user", "app_contact_gist": "", "app_contact_html": "/weather", "app_contact_http": "http://0.0.0.0:8888", "app_contact_slack_api_key": "SLACK_TOKEN", "app_contact_slack_bot_id": "SLACK_BOT_ID", "app_contact_slack_channel_id": "SLACK_CHANNEL_ID", "app_contact_tcp": "0.0.0.0:7010", "app_contact_tunnel_ssh_host_key_file": "caldera/conf/ssh_keys/id_rsa", "app_contact_tunnel_ssh_host_key_passphrase": "", "app_contact_tunnel_ssh_socket": "0.0.0.0:8022", "app_contact_tunnel_ssh_user_name": "sandcat", "app_contact_tunnel_ssh_user_password": "s4ndc4t!", "app_contact_udp": "0.0.0.0:7011", "app_contact_websocket": "0.0.0.0:7012", "auth_login_handler_module": "default", "caldera_install_root_dir": "/opt", "contact_port": 8888, "crypt_salt": "REPLACE_WITH_RANDOM_VALUE", "encryption_key": "ADMIN123", "exfil_dir": "/tmp/caldera", "go_home_path": "export GOPATH=$HOME/gopath", "go_path": "/usr/local/go/bin", "host": "0.0.0.0", "host_key_checking": false, "objects_planners_default": "atomic", "plugins": ["access", "atomic", "builder", "compass", "debrief", "pathfinder", "fieldmanual", "manx", "response", "sandcat", "stockpile"], "reports_dir": "/tmp", "timezone": "America/New_York"}, "ansible_included_var_files": ["/tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/project/group_vars/all.yml"], "changed": false}
+
+TASK [Update Cache] ************************************************************
+ok: [linsys0red] => {"attempts": 1, "cache_update_time": 1665015142, "cache_updated": false, "changed": false}
+
+TASK [Upgrade all packages to the latest version] ******************************
+ok: [linsys0red] => {"attempts": 1, "changed": false, "msg": "Reading package lists...\\nBuilding dependency tree...\\nReading state information...\\nReading extended state information...\\nInitializing package states...\\nWriting extended state information...\\nBuilding tag database...\\nNo packages will be installed, upgraded, or removed.\\n0 packages upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\\nNeed to get 0 B of archives. After unpacking 0 B will be used.\\nWriting extended state information...\\nReading package lists...\\nBuilding dependency tree...\\nReading state information...\\nReading extended state information...\\nInitializing package states...\\nWriting extended state information...\\nBuilding tag database...\\n", "stderr": "", "stderr_lines": [], "stdout": "Reading package lists...\\nBuilding dependency tree...\\nReading state information...\\nReading extended state information...\\nInitializing package states...\\nWriting extended state information...\\nBuilding tag database...\\nNo packages will be installed, upgraded, or removed.\\n0 packages upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\\nNeed to get 0 B of archives. After unpacking 0 B will be used.\\nWriting extended state information...\\nReading package lists...\\nBuilding dependency tree...\\nReading state information...\\nReading extended state information...\\nInitializing package states...\\nWriting extended state information...\\nBuilding tag database...\\n", "stdout_lines": ["Reading package lists...", "Building dependency tree...", "Reading state information...", "Reading extended state information...", "Initializing package states...", "Writing extended state information...", "Building tag database...", "No packages will be installed, upgraded, or removed.", "0 packages upgraded, 0 newly installed, 0 to remove and 0 not upgraded.", "Need to get 0 B of archives. After unpacking 0 B will be used.", "Writing extended state information...", "Reading package lists...", "Building dependency tree...", "Reading state information...", "Reading extended state information...", "Initializing package states...", "Writing extended state information...", "Building tag database..."]}
+
+TASK [Install Common Apps] *****************************************************
+ok: [linsys0red] => (item=ntp) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016956, "cache_updated": true, "changed": false, "item": "ntp"}
+ok: [linsys0red] => (item=mlocate) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016959, "cache_updated": true, "changed": false, "item": "mlocate"}
+ok: [linsys0red] => (item=vim) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016961, "cache_updated": true, "changed": false, "item": "vim"}
+ok: [linsys0red] => (item=aptitude) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016964, "cache_updated": true, "changed": false, "item": "aptitude"}
+ok: [linsys0red] => (item=openssh-server) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016967, "cache_updated": true, "changed": false, "item": "openssh-server"}
+ok: [linsys0red] => (item=openssl) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016970, "cache_updated": true, "changed": false, "item": "openssl"}
+ok: [linsys0red] => (item=shellinabox) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016973, "cache_updated": true, "changed": false, "item": "shellinabox"}
+ok: [linsys0red] => (item=python3) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016975, "cache_updated": true, "changed": false, "item": "python3"}
+ok: [linsys0red] => (item=python3-pip) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016978, "cache_updated": true, "changed": false, "item": "python3-pip"}
+
+TASK [Status of Commons] *******************************************************
+ok: [linsys0red] => {
+    "status": {
+        "changed": false,
+        "msg": "All items completed",
+        "results": [
+            {
+                "ansible_loop_var": "item",
+                "attempts": 1,
+                "cache_update_time": 1665016956,
+                "cache_updated": true,
+                "changed": false,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "allow_unauthenticated": false,
+                        "autoclean": false,
+                        "autoremove": false,
+                        "cache_valid_time": 0,
+                        "deb": null,
+                        "default_release": null,
+                        "dpkg_options": "force-confdef,force-confold",
+                        "force": false,
+                        "force_apt_get": false,
+                        "install_recommends": null,
+                        "name": "ntp",
+                        "only_upgrade": false,
+                        "package": [
+                            "ntp"
+                        ],
+                        "policy_rc_d": null,
+                        "purge": false,
+                        "state": "present",
+                        "update_cache": true,
+                        "upgrade": null
+                    }
+                },
+                "item": "ntp"
+            },
+            {
+                "ansible_loop_var": "item",
+                "attempts": 1,
+                "cache_update_time": 1665016959,
+                "cache_updated": true,
+                "changed": false,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "allow_unauthenticated": false,
+                        "autoclean": false,
+                        "autoremove": false,
+                        "cache_valid_time": 0,
+                        "deb": null,
+                        "default_release": null,
+                        "dpkg_options": "force-confdef,force-confold",
+                        "force": false,
+                        "force_apt_get": false,
+                        "install_recommends": null,
+                        "name": "mlocate",
+                        "only_upgrade": false,
+                        "package": [
+                            "mlocate"
+                        ],
+                        "policy_rc_d": null,
+                        "purge": false,
+                        "state": "present",
+                        "update_cache": true,
+                        "upgrade": null
+                    }
+                },
+                "item": "mlocate"
+            },
+            {
+                "ansible_loop_var": "item",
+                "attempts": 1,
+                "cache_update_time": 1665016961,
+                "cache_updated": true,
+                "changed": false,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "allow_unauthenticated": false,
+                        "autoclean": false,
+                        "autoremove": false,
+                        "cache_valid_time": 0,
+                        "deb": null,
+                        "default_release": null,
+                        "dpkg_options": "force-confdef,force-confold",
+                        "force": false,
+                        "force_apt_get": false,
+                        "install_recommends": null,
+                        "name": "vim",
+                        "only_upgrade": false,
+                        "package": [
+                            "vim"
+                        ],
+                        "policy_rc_d": null,
+                        "purge": false,
+                        "state": "present",
+                        "update_cache": true,
+                        "upgrade": null
+                    }
+                },
+                "item": "vim"
+            },
+            {
+                "ansible_loop_var": "item",
+                "attempts": 1,
+                "cache_update_time": 1665016964,
+                "cache_updated": true,
+                "changed": false,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "allow_unauthenticated": false,
+                        "autoclean": false,
+                        "autoremove": false,
+                        "cache_valid_time": 0,
+                        "deb": null,
+                        "default_release": null,
+                        "dpkg_options": "force-confdef,force-confold",
+                        "force": false,
+                        "force_apt_get": false,
+                        "install_recommends": null,
+                        "name": "aptitude",
+                        "only_upgrade": false,
+                        "package": [
+                            "aptitude"
+                        ],
+                        "policy_rc_d": null,
+                        "purge": false,
+                        "state": "present",
+                        "update_cache": true,
+                        "upgrade": null
+                    }
+                },
+                "item": "aptitude"
+            },
+            {
+                "ansible_loop_var": "item",
+                "attempts": 1,
+                "cache_update_time": 1665016967,
+                "cache_updated": true,
+                "changed": false,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "allow_unauthenticated": false,
+                        "autoclean": false,
+                        "autoremove": false,
+                        "cache_valid_time": 0,
+                        "deb": null,
+                        "default_release": null,
+                        "dpkg_options": "force-confdef,force-confold",
+                        "force": false,
+                        "force_apt_get": false,
+                        "install_recommends": null,
+                        "name": "openssh-server",
+                        "only_upgrade": false,
+                        "package": [
+                            "openssh-server"
+                        ],
+                        "policy_rc_d": null,
+                        "purge": false,
+                        "state": "present",
+                        "update_cache": true,
+                        "upgrade": null
+                    }
+                },
+                "item": "openssh-server"
+            },
+            {
+                "ansible_loop_var": "item",
+                "attempts": 1,
+                "cache_update_time": 1665016970,
+                "cache_updated": true,
+                "changed": false,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "allow_unauthenticated": false,
+                        "autoclean": false,
+                        "autoremove": false,
+                        "cache_valid_time": 0,
+                        "deb": null,
+                        "default_release": null,
+                        "dpkg_options": "force-confdef,force-confold",
+                        "force": false,
+                        "force_apt_get": false,
+                        "install_recommends": null,
+                        "name": "openssl",
+                        "only_upgrade": false,
+                        "package": [
+                            "openssl"
+                        ],
+                        "policy_rc_d": null,
+                        "purge": false,
+                        "state": "present",
+                        "update_cache": true,
+                        "upgrade": null
+                    }
+                },
+                "item": "openssl"
+            },
+            {
+                "ansible_loop_var": "item",
+                "attempts": 1,
+                "cache_update_time": 1665016973,
+                "cache_updated": true,
+                "changed": false,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "allow_unauthenticated": false,
+                        "autoclean": false,
+                        "autoremove": false,
+                        "cache_valid_time": 0,
+                        "deb": null,
+                        "default_release": null,
+                        "dpkg_options": "force-confdef,force-confold",
+                        "force": false,
+                        "force_apt_get": false,
+                        "install_recommends": null,
+                        "name": "shellinabox",
+                        "only_upgrade": false,
+                        "package": [
+                            "shellinabox"
+                        ],
+                        "policy_rc_d": null,
+                        "purge": false,
+                        "state": "present",
+                        "update_cache": true,
+                        "upgrade": null
+                    }
+                },
+                "item": "shellinabox"
+            },
+            {
+                "ansible_loop_var": "item",
+                "attempts": 1,
+                "cache_update_time": 1665016975,
+                "cache_updated": true,
+                "changed": false,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "allow_unauthenticated": false,
+                        "autoclean": false,
+                        "autoremove": false,
+                        "cache_valid_time": 0,
+                        "deb": null,
+                        "default_release": null,
+                        "dpkg_options": "force-confdef,force-confold",
+                        "force": false,
+                        "force_apt_get": false,
+                        "install_recommends": null,
+                        "name": "python3",
+                        "only_upgrade": false,
+                        "package": [
+                            "python3"
+                        ],
+                        "policy_rc_d": null,
+                        "purge": false,
+                        "state": "present",
+                        "update_cache": true,
+                        "upgrade": null
+                    }
+                },
+                "item": "python3"
+            },
+            {
+                "ansible_loop_var": "item",
+                "attempts": 1,
+                "cache_update_time": 1665016978,
+                "cache_updated": true,
+                "changed": false,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "allow_unauthenticated": false,
+                        "autoclean": false,
+                        "autoremove": false,
+                        "cache_valid_time": 0,
+                        "deb": null,
+                        "default_release": null,
+                        "dpkg_options": "force-confdef,force-confold",
+                        "force": false,
+                        "force_apt_get": false,
+                        "install_recommends": null,
+                        "name": "python3-pip",
+                        "only_upgrade": false,
+                        "package": [
+                            "python3-pip"
+                        ],
+                        "policy_rc_d": null,
+                        "purge": false,
+                        "state": "present",
+                        "update_cache": true,
+                        "upgrade": null
+                    }
+                },
+                "item": "python3-pip"
+            }
+        ]
+    }
+}
+
+TASK [Autoremove unused dependency packages] ***********************************
+changed: [linsys0red] => {"attempts": 1, "cache_update_time": 1665016981, "cache_updated": true, "changed": true}
+
+TASK [Status of Remove and update] *********************************************
+ok: [linsys0red] => {
+    "status": {
+        "attempts": 1,
+        "cache_update_time": 1665016981,
+        "cache_updated": true,
+        "changed": true,
+        "failed": false
+    }
+}
+
+TASK [install go] **************************************************************
+[WARNING]: Consider using the get_url or uri module rather than running 'curl'.
+If you need to use command because get_url or uri is insufficient you can add
+'warn: false' to this command task or set 'command_warnings=False' in
+ansible.cfg to get rid of this message.
+changed: [linsys0red] => {"changed": true, "cmd": "curl -L https://go.dev/dl/go1.19.2.linux-amd64.tar.gz -o go1.19.2.linux-amd64.tar.gz; rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.2.linux-amd64.tar.gz;", "delta": "0:00:07.851116", "end": "2022-10-06 00:43:11.103268", "rc": 0, "start": "2022-10-06 00:43:03.252152", "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\\n                                 Dload  Upload   Total   Spent    Left  Speed\\n\\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\\r100    75  100    75    0     0    355      0 --:--:-- --:--:-- --:--:--   355\\n\\r 31  141M   31 45.3M    0     0  66.1M      0  0:00:02 --:--:--  0:00:02 66.1M\\r100  141M  100  141M    0     0  95.6M      0  0:00:01  0:00:01 --:--:--  121M", "stderr_lines": ["  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100    75  100    75    0     0    355      0 --:--:-- --:--:-- --:--:--   355", "", " 31  141M   31 45.3M    0     0  66.1M      0  0:00:02 --:--:--  0:00:02 66.1M", "100  141M  100  141M    0     0  95.6M      0  0:00:01  0:00:01 --:--:--  121M"], "stdout": "", "stdout_lines": []}
+
+TASK [Check if Go Path already exists] *****************************************
+ok: [linsys0red] => {"changed": false, "stat": {"atime": 1665015086.232252, "attr_flags": "e", "attributes": ["extents"], "block_size": 4096, "blocks": 8, "charset": "us-ascii", "checksum": "d12d5845c1c96af8a24bd7b5b0ea89717b4f7f6c", "ctime": 1665015084.4242375, "dev": 2049, "device_type": 0, "executable": false, "exists": true, "gid": 0, "gr_name": "root", "inode": 1291796, "isblk": false, "ischr": false, "isdir": false, "isfifo": false, "isgid": false, "islnk": false, "isreg": true, "issock": false, "isuid": false, "mimetype": "text/plain", "mode": "0644", "mtime": 1665015083.7762322, "nlink": 1, "path": "/etc/profile.d/gopath.sh", "pw_name": "root", "readable": true, "rgrp": true, "roth": true, "rusr": true, "size": 28, "uid": 0, "version": "684579599", "wgrp": false, "woth": false, "writeable": true, "wusr": true, "xgrp": false, "xoth": false, "xusr": false}}
+
+TASK [Remove Path if Exists] ***************************************************
+[WARNING]: Consider using the file module with state=absent rather than running
+'rm'.  If you need to use command because file is insufficient you can add
+'warn: false' to this command task or set 'command_warnings=False' in
+ansible.cfg to get rid of this message.
+changed: [linsys0red] => {"changed": true, "cmd": "rm -rf /etc/profile.d/gopath.sh", "delta": "0:00:00.004241", "end": "2022-10-06 00:43:12.237265", "rc": 0, "start": "2022-10-06 00:43:12.233024", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [Check if Go Path already exists] *****************************************
+ok: [linsys0red] => {"changed": false, "stat": {"atime": 1665015086.232252, "attr_flags": "e", "attributes": ["extents"], "block_size": 4096, "blocks": 8, "charset": "us-ascii", "checksum": "1e10299de08878af4cc1ae1d9072ef1a8873bf3b", "ctime": 1665015085.7962484, "dev": 2049, "device_type": 0, "executable": false, "exists": true, "gid": 0, "gr_name": "root", "inode": 1291797, "isblk": false, "ischr": false, "isdir": false, "isfifo": false, "isgid": false, "islnk": false, "isreg": true, "issock": false, "isuid": false, "mimetype": "text/plain", "mode": "0644", "mtime": 1665015085.488246, "nlink": 1, "path": "/etc/profile.d/gopath2.sh", "pw_name": "root", "readable": true, "rgrp": true, "roth": true, "rusr": true, "size": 26, "uid": 0, "version": "4212899731", "wgrp": false, "woth": false, "writeable": true, "wusr": true, "xgrp": false, "xoth": false, "xusr": false}}
+
+TASK [Remove Path if Exists] ***************************************************
+changed: [linsys0red] => {"changed": true, "cmd": "rm -rf /etc/profile.d/gopath2.sh", "delta": "0:00:00.004155", "end": "2022-10-06 00:43:13.184075", "rc": 0, "start": "2022-10-06 00:43:13.179920", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [Add go to path.] *********************************************************
+--- before
++++ after: /var/lib/awx/.ansible/tmp/ansible-local-699753gv9o_dd/tmp6f88kz2h
+@@ -0,0 +1 @@
++PATH=$PATH:/usr/local/go/bin
+\\ No newline at end of file
+
+changed: [linsys0red] => {"changed": true, "checksum": "d12d5845c1c96af8a24bd7b5b0ea89717b4f7f6c", "dest": "/etc/profile.d/gopath.sh", "gid": 0, "group": "root", "md5sum": "df4bb6478ac46b487098d80213977d96", "mode": "0644", "owner": "root", "size": 28, "src": "/home/instructor/.ansible/tmp/ansible-tmp-1665016993.4619668-70258-222698718379346/source", "state": "file", "uid": 0}
+
+TASK [Add go home to path.] ****************************************************
+--- before
++++ after: /var/lib/awx/.ansible/tmp/ansible-local-699753gv9o_dd/tmps3bscd00
+@@ -0,0 +1 @@
++export GOPATH=$HOME/gopath
+\\ No newline at end of file
+
+changed: [linsys0red] => {"changed": true, "checksum": "1e10299de08878af4cc1ae1d9072ef1a8873bf3b", "dest": "/etc/profile.d/gopath2.sh", "gid": 0, "group": "root", "md5sum": "ae2c4c1ca268268e7b9af55f98456d51", "mode": "0644", "owner": "root", "size": 26, "src": "/home/instructor/.ansible/tmp/ansible-tmp-1665016995.0413888-70293-74679771312029/source", "state": "file", "uid": 0}
+
+TASK [symlink to go] ***********************************************************
+--- before
++++ after
+@@ -1,4 +1,4 @@
+ {
+     "path": "/usr/bin/go",
+-    "state": "absent"
++    "state": "link"
+ }
+
+changed: [linsys0red] => {"changed": true, "dest": "/usr/bin/go", "gid": 0, "group": "root", "mode": "0777", "owner": "root", "size": 20, "src": "/usr/local/go/bin/go", "state": "link", "uid": 0}
+
+TASK [Source Both PATH files] **************************************************
+changed: [linsys0red] => {"changed": true, "cmd": "/bin/bash -c \\"source /etc/profile.d/gopath.sh\\"; /bin/bash -c \\"source /etc/profile.d/gopath2.sh\\"", "delta": "0:00:00.006154", "end": "2022-10-06 00:43:16.684827", "rc": 0, "start": "2022-10-06 00:43:16.678673", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [build plugin depend install] *********************************************
+included: /tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/project/includes/build_depend.yml for linsys0red
+
+TASK [Install Dependencies for MSF, NMAP, and other tools] *********************
+ok: [linsys0red] => (item=curl) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "curl"}
+ok: [linsys0red] => (item=build-essential) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "build-essential"}
+ok: [linsys0red] => (item=libreadline-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libreadline-dev"}
+ok: [linsys0red] => (item=libssl-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libssl-dev"}
+ok: [linsys0red] => (item=libpq5) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libpq5"}
+ok: [linsys0red] => (item=libpq-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libpq-dev"}
+ok: [linsys0red] => (item=libreadline5) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libreadline5"}
+ok: [linsys0red] => (item=libsqlite3-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libsqlite3-dev"}
+ok: [linsys0red] => (item=libpcap-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libpcap-dev"}
+ok: [linsys0red] => (item=git-core) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "git-core"}
+ok: [linsys0red] => (item=autoconf) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "autoconf"}
+ok: [linsys0red] => (item=postgresql) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "postgresql"}
+ok: [linsys0red] => (item=pgadmin3) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "pgadmin3"}
+ok: [linsys0red] => (item=zlib1g-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "zlib1g-dev"}
+ok: [linsys0red] => (item=libxml2-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libxml2-dev"}
+ok: [linsys0red] => (item=libxslt1-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libxslt1-dev"}
+ok: [linsys0red] => (item=libyaml-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libyaml-dev"}
+ok: [linsys0red] => (item=zlib1g-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "zlib1g-dev"}
+ok: [linsys0red] => (item=gawk) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "gawk"}
+ok: [linsys0red] => (item=bison) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "bison"}
+ok: [linsys0red] => (item=libffi-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libffi-dev"}
+ok: [linsys0red] => (item=libgdbm-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libgdbm-dev"}
+ok: [linsys0red] => (item=libncurses5-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libncurses5-dev"}
+ok: [linsys0red] => (item=libtool) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libtool"}
+ok: [linsys0red] => (item=sqlite3) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "sqlite3"}
+ok: [linsys0red] => (item=libgmp-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "libgmp-dev"}
+ok: [linsys0red] => (item=gnupg2) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "gnupg2"}
+ok: [linsys0red] => (item=dirmngr) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "dirmngr"}
+ok: [linsys0red] => (item=bison) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665016981, "cache_updated": false, "changed": false, "item": "bison"}
+
+TASK [Autoremove unused dependency packages] ***********************************
+changed: [linsys0red] => {"attempts": 1, "cache_update_time": 1665017041, "cache_updated": true, "changed": true}
+
+TASK [Status of Remove and update] *********************************************
+ok: [linsys0red] => {
+    "status": {
+        "attempts": 1,
+        "cache_update_time": 1665017041,
+        "cache_updated": true,
+        "changed": true,
+        "failed": false
+    }
+}
+
+TASK [Install Ruby] ************************************************************
+ok: [linsys0red] => (item=ruby) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665017041, "cache_updated": false, "changed": false, "item": "ruby"}
+ok: [linsys0red] => (item=ruby-dev) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665017041, "cache_updated": false, "changed": false, "item": "ruby-dev"}
+ok: [linsys0red] => (item=ruby-bundler) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665017041, "cache_updated": false, "changed": false, "item": "ruby-bundler"}
+failed: [linsys0red] (item=ruby-rake) => {"ansible_loop_var": "item", "attempts": 1, "changed": false, "item": "ruby-rake", "msg": "No package matching 'ruby-rake' is available"}
+ok: [linsys0red] => (item=rubygems) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665017041, "cache_updated": false, "changed": false, "item": "rubygems"}
+ok: [linsys0red] => (item=rubygems-integration) => {"ansible_loop_var": "item", "attempts": 1, "cache_update_time": 1665017041, "cache_updated": false, "changed": false, "item": "rubygems-integration"}
+...ignoring
+
+TASK [MSF Console Install] *****************************************************
+changed: [linsys0red] => {"changed": true, "cmd": "curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall", "delta": "0:00:03.653320", "end": "2022-10-06 00:44:15.375440", "rc": 0, "start": "2022-10-06 00:44:11.722120", "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\\n                                 Dload  Upload   Total   Spent    Left  Speed\\n\\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\\r100  6034  100  6034    0     0  59742      0 --:--:-- --:--:-- --:--:-- 59742\\nWarning: apt-key output should not be parsed (stdout is not a terminal)", "stderr_lines": ["  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100  6034  100  6034    0     0  59742      0 --:--:-- --:--:-- --:--:-- 59742", "Warning: apt-key output should not be parsed (stdout is not a terminal)"], "stdout": "Adding metasploit-framework to your repository list..OK\\nUpdating package cache..OK\\nChecking for and installing update..\\nReading package lists...\\nBuilding dependency tree...\\nReading state information...\\nmetasploit-framework is already the newest version (6.2.21+20221005102719~1rapid7-1).\\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.", "stdout_lines": ["Adding metasploit-framework to your repository list..OK", "Updating package cache..OK", "Checking for and installing update..", "Reading package lists...", "Building dependency tree...", "Reading state information...", "metasploit-framework is already the newest version (6.2.21+20221005102719~1rapid7-1).", "0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."]}
+
+TASK [Nmap installation] *******************************************************
+ok: [linsys0red] => {"attempts": 1, "cache_update_time": 1665017052, "cache_updated": false, "changed": false}
+
+TASK [Clone Caldera] ***********************************************************
+included: /tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/project/includes/install.yml for linsys0red
+
+TASK [Import Vars] *************************************************************
+ok: [linsys0red] => {"ansible_facts": {"ability_refresh": 60, "ansible_python_interpreter": "/usr/bin/python3", "api_key_blue": "BLUEADMIN123", "api_key_red": "ADMIN123", "app_contact_dns_domain": "505cve.bde", "app_contact_dns_socket": "0.0.0.0:8853", "app_contact_ftp_host": "0.0.0.0", "app_contact_ftp_port": "2222", "app_contact_ftp_pword": "caldera", "app_contact_ftp_server_dir": "ftp_dir", "app_contact_ftp_user": "caldera_user", "app_contact_gist": "", "app_contact_html": "/weather", "app_contact_http": "http://0.0.0.0:8888", "app_contact_slack_api_key": "SLACK_TOKEN", "app_contact_slack_bot_id": "SLACK_BOT_ID", "app_contact_slack_channel_id": "SLACK_CHANNEL_ID", "app_contact_tcp": "0.0.0.0:7010", "app_contact_tunnel_ssh_host_key_file": "caldera/conf/ssh_keys/id_rsa", "app_contact_tunnel_ssh_host_key_passphrase": "", "app_contact_tunnel_ssh_socket": "0.0.0.0:8022", "app_contact_tunnel_ssh_user_name": "sandcat", "app_contact_tunnel_ssh_user_password": "s4ndc4t!", "app_contact_udp": "0.0.0.0:7011", "app_contact_websocket": "0.0.0.0:7012", "auth_login_handler_module": "default", "caldera_install_root_dir": "/opt", "contact_port": 8888, "crypt_salt": "REPLACE_WITH_RANDOM_VALUE", "encryption_key": "ADMIN123", "exfil_dir": "/tmp/caldera", "go_home_path": "export GOPATH=$HOME/gopath", "go_path": "/usr/local/go/bin", "host": "0.0.0.0", "host_key_checking": false, "objects_planners_default": "atomic", "plugins": ["access", "atomic", "builder", "compass", "debrief", "pathfinder", "fieldmanual", "manx", "response", "sandcat", "stockpile"], "reports_dir": "/tmp", "timezone": "America/New_York"}, "ansible_included_var_files": ["/tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/project/group_vars/all.yml"], "changed": false}
+
+TASK [Check if Caldera already exists] *****************************************
+ok: [linsys0red] => {"changed": false, "stat": {"atime": 1665015207.0932097, "attr_flags": "e", "attributes": ["extents"], "block_size": 4096, "blocks": 8, "charset": "binary", "ctime": 1665015207.0492094, "dev": 2049, "device_type": 0, "executable": true, "exists": true, "gid": 0, "gr_name": "root", "inode": 96770, "isblk": false, "ischr": false, "isdir": true, "isfifo": false, "isgid": false, "islnk": false, "isreg": false, "issock": false, "isuid": false, "mimetype": "inode/directory", "mode": "0755", "mtime": 1665015207.0492094, "nlink": 12, "path": "/opt/caldera", "pw_name": "root", "readable": true, "rgrp": true, "roth": true, "rusr": true, "size": 4096, "uid": 0, "version": "2683039292", "wgrp": false, "woth": false, "writeable": true, "wusr": true, "xgrp": true, "xoth": true, "xusr": true}}
+
+TASK [Caldera Exists -- Removing Directory] ************************************
+changed: [linsys0red] => {"changed": true, "cmd": "rm -rf /opt/caldera", "delta": "0:00:00.202258", "end": "2022-10-06 00:44:18.793673", "rc": 0, "start": "2022-10-06 00:44:18.591415", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [Git /caldera] ************************************************************
+changed: [linsys0red] => {"changed": true, "cmd": "git clone https://github.com/mitre/caldera.git --recursive", "delta": "0:00:22.138985", "end": "2022-10-06 00:44:41.495600", "rc": 0, "start": "2022-10-06 00:44:19.356615", "stderr": "Cloning into 'caldera'...\\nSubmodule 'plugins/access' (https://github.com/mitre/access.git) registered for path 'plugins/access'\\nSubmodule 'plugins/atomic' (https://github.com/mitre/atomic.git) registered for path 'plugins/atomic'\\nSubmodule 'plugins/builder' (https://github.com/mitre/builder.git) registered for path 'plugins/builder'\\nSubmodule 'plugins/compass' (https://github.com/mitre/compass.git) registered for path 'plugins/compass'\\nSubmodule 'plugins/debrief' (https://github.com/mitre/debrief.git) registered for path 'plugins/debrief'\\nSubmodule 'plugins/emu' (https://github.com/mitre/emu.git) registered for path 'plugins/emu'\\nSubmodule 'plugins/fieldmanual' (https://github.com/mitre/fieldmanual.git) registered for path 'plugins/fieldmanual'\\nSubmodule 'plugins/gameboard' (https://github.com/mitre/gameboard.git) registered for path 'plugins/gameboard'\\nSubmodule 'plugins/human' (https://github.com/mitre/human.git) registered for path 'plugins/human'\\nSubmodule 'plugins/manx' (https://github.com/mitre/manx.git) registered for path 'plugins/manx'\\nSubmodule 'plugins/mock' (https://github.com/mitre/mock.git) registered for path 'plugins/mock'\\nSubmodule 'plugins/response' (https://github.com/mitre/response.git) registered for path 'plugins/response'\\nSubmodule 'plugins/sandcat' (https://github.com/mitre/sandcat.git) registered for path 'plugins/sandcat'\\nSubmodule 'plugins/ssl' (https://github.com/mitre/ssl.git) registered for path 'plugins/ssl'\\nSubmodule 'plugins/stockpile' (https://github.com/mitre/stockpile.git) registered for path 'plugins/stockpile'\\nSubmodule 'plugins/training' (https://github.com/mitre/training.git) registered for path 'plugins/training'\\nCloning into '/opt/caldera/plugins/access'...\\nCloning into '/opt/caldera/plugins/atomic'...\\nCloning into '/opt/caldera/plugins/builder'...\\nCloning into '/opt/caldera/plugins/compass'...\\nCloning into '/opt/caldera/plugins/debrief'...\\nCloning into '/opt/caldera/plugins/emu'...\\nCloning into '/opt/caldera/plugins/fieldmanual'...\\nCloning into '/opt/caldera/plugins/gameboard'...\\nCloning into '/opt/caldera/plugins/human'...\\nCloning into '/opt/caldera/plugins/manx'...\\nCloning into '/opt/caldera/plugins/mock'...\\nCloning into '/opt/caldera/plugins/response'...\\nCloning into '/opt/caldera/plugins/sandcat'...\\nCloning into '/opt/caldera/plugins/ssl'...\\nCloning into '/opt/caldera/plugins/stockpile'...\\nCloning into '/opt/caldera/plugins/training'...", "stderr_lines": ["Cloning into 'caldera'...", "Submodule 'plugins/access' (https://github.com/mitre/access.git) registered for path 'plugins/access'", "Submodule 'plugins/atomic' (https://github.com/mitre/atomic.git) registered for path 'plugins/atomic'", "Submodule 'plugins/builder' (https://github.com/mitre/builder.git) registered for path 'plugins/builder'", "Submodule 'plugins/compass' (https://github.com/mitre/compass.git) registered for path 'plugins/compass'", "Submodule 'plugins/debrief' (https://github.com/mitre/debrief.git) registered for path 'plugins/debrief'", "Submodule 'plugins/emu' (https://github.com/mitre/emu.git) registered for path 'plugins/emu'", "Submodule 'plugins/fieldmanual' (https://github.com/mitre/fieldmanual.git) registered for path 'plugins/fieldmanual'", "Submodule 'plugins/gameboard' (https://github.com/mitre/gameboard.git) registered for path 'plugins/gameboard'", "Submodule 'plugins/human' (https://github.com/mitre/human.git) registered for path 'plugins/human'", "Submodule 'plugins/manx' (https://github.com/mitre/manx.git) registered for path 'plugins/manx'", "Submodule 'plugins/mock' (https://github.com/mitre/mock.git) registered for path 'plugins/mock'", "Submodule 'plugins/response' (https://github.com/mitre/response.git) registered for path 'plugins/response'", "Submodule 'plugins/sandcat' (https://github.com/mitre/sandcat.git) registered for path 'plugins/sandcat'", "Submodule 'plugins/ssl' (https://github.com/mitre/ssl.git) registered for path 'plugins/ssl'", "Submodule 'plugins/stockpile' (https://github.com/mitre/stockpile.git) registered for path 'plugins/stockpile'", "Submodule 'plugins/training' (https://github.com/mitre/training.git) registered for path 'plugins/training'", "Cloning into '/opt/caldera/plugins/access'...", "Cloning into '/opt/caldera/plugins/atomic'...", "Cloning into '/opt/caldera/plugins/builder'...", "Cloning into '/opt/caldera/plugins/compass'...", "Cloning into '/opt/caldera/plugins/debrief'...", "Cloning into '/opt/caldera/plugins/emu'...", "Cloning into '/opt/caldera/plugins/fieldmanual'...", "Cloning into '/opt/caldera/plugins/gameboard'...", "Cloning into '/opt/caldera/plugins/human'...", "Cloning into '/opt/caldera/plugins/manx'...", "Cloning into '/opt/caldera/plugins/mock'...", "Cloning into '/opt/caldera/plugins/response'...", "Cloning into '/opt/caldera/plugins/sandcat'...", "Cloning into '/opt/caldera/plugins/ssl'...", "Cloning into '/opt/caldera/plugins/stockpile'...", "Cloning into '/opt/caldera/plugins/training'..."], "stdout": "Submodule path 'plugins/access': checked out 'fff4c20183cb92862db048f03232f717f43a8282'\\nSubmodule path 'plugins/atomic': checked out '9e2c9587d3e1ef1ebd2c89a22d550b7131ee4099'\\nSubmodule path 'plugins/builder': checked out '1aca019d69a57a474174d0025604315616ea7f98'\\nSubmodule path 'plugins/compass': checked out 'fb88e0274a79ab87ad0965595aaea645a5ce0b62'\\nSubmodule path 'plugins/debrief': checked out 'd815b603cbc639e9de509ca1331446cb3bb075aa'\\nSubmodule path 'plugins/emu': checked out '5dbff8251aea6e6167e9705888f5ad1b3ded2119'\\nSubmodule path 'plugins/fieldmanual': checked out '510d0b9d48817e508cdbfc0260f088356f8543d5'\\nSubmodule path 'plugins/gameboard': checked out '3d98c32316d0ee248249353ee8736b36391b17b4'\\nSubmodule path 'plugins/human': checked out '4368dea178f7ec0aef7514b10adb1a86e22f41f8'\\nSubmodule path 'plugins/manx': checked out 'e7205ea454eef8b9f0a8fbf9be35438bf3234575'\\nSubmodule path 'plugins/mock': checked out '4ea33379250cd9d2eaa28fd8fbc287798c7a8b14'\\nSubmodule path 'plugins/response': checked out '889213af15ce9ab9382375784408e06225d9530c'\\nSubmodule path 'plugins/sandcat': checked out 'de3405f41ce1ff991eda059b53d0b8060b12845e'\\nSubmodule path 'plugins/ssl': checked out 'ac5bfcb1b74e80798b9fe07aad10f5990f9a2c2c'\\nSubmodule path 'plugins/stockpile': checked out '9662f27b3456eaffd45c2c7902c75db62f1a0e1f'\\nSubmodule path 'plugins/training': checked out 'e309b0fcdd02467fcbfab2c28487cdc7c13072dc'", "stdout_lines": ["Submodule path 'plugins/access': checked out 'fff4c20183cb92862db048f03232f717f43a8282'", "Submodule path 'plugins/atomic': checked out '9e2c9587d3e1ef1ebd2c89a22d550b7131ee4099'", "Submodule path 'plugins/builder': checked out '1aca019d69a57a474174d0025604315616ea7f98'", "Submodule path 'plugins/compass': checked out 'fb88e0274a79ab87ad0965595aaea645a5ce0b62'", "Submodule path 'plugins/debrief': checked out 'd815b603cbc639e9de509ca1331446cb3bb075aa'", "Submodule path 'plugins/emu': checked out '5dbff8251aea6e6167e9705888f5ad1b3ded2119'", "Submodule path 'plugins/fieldmanual': checked out '510d0b9d48817e508cdbfc0260f088356f8543d5'", "Submodule path 'plugins/gameboard': checked out '3d98c32316d0ee248249353ee8736b36391b17b4'", "Submodule path 'plugins/human': checked out '4368dea178f7ec0aef7514b10adb1a86e22f41f8'", "Submodule path 'plugins/manx': checked out 'e7205ea454eef8b9f0a8fbf9be35438bf3234575'", "Submodule path 'plugins/mock': checked out '4ea33379250cd9d2eaa28fd8fbc287798c7a8b14'", "Submodule path 'plugins/response': checked out '889213af15ce9ab9382375784408e06225d9530c'", "Submodule path 'plugins/sandcat': checked out 'de3405f41ce1ff991eda059b53d0b8060b12845e'", "Submodule path 'plugins/ssl': checked out 'ac5bfcb1b74e80798b9fe07aad10f5990f9a2c2c'", "Submodule path 'plugins/stockpile': checked out '9662f27b3456eaffd45c2c7902c75db62f1a0e1f'", "Submodule path 'plugins/training': checked out 'e309b0fcdd02467fcbfab2c28487cdc7c13072dc'"]}
+
+TASK [install pip install] *****************************************************
+changed: [linsys0red] => {"changed": true, "cmd": "python3 -m pip install -U pip", "delta": "0:00:01.742840", "end": "2022-10-06 00:44:43.634987", "rc": 0, "start": "2022-10-06 00:44:41.892147", "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv", "stderr_lines": ["WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv"], "stdout": "Requirement already satisfied: pip in /usr/local/lib/python3.8/dist-packages (22.2.2)", "stdout_lines": ["Requirement already satisfied: pip in /usr/local/lib/python3.8/dist-packages (22.2.2)"]}
+
+TASK [append comment to "/opt"/caldera/requirements.txt] ***********************
+changed: [linsys0red] => {"changed": true, "cmd": "echo \\"# Pathfinder Reqs-Inserted w/Ansible\\" >> \\"/opt\\"/caldera/requirements.txt", "delta": "0:00:00.002841", "end": "2022-10-06 00:44:44.181727", "rc": 0, "start": "2022-10-06 00:44:44.178886", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [add pathfinder requirements to "/opt"/caldera/requirements.txt] **********
+--- before: /opt/caldera/requirements.txt (content)
++++ after: /opt/caldera/requirements.txt (content)
+@@ -28,3 +28,4 @@
+ aioftp==0.16.1; python_version < '3.7'
+ pyminizip==0.2.6
+ # Pathfinder Reqs-Inserted w/Ansible
++ 
+
+changed: [linsys0red] => (item= ) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": " ", "msg": "line added"}
+--- before: /opt/caldera/requirements.txt (content)
++++ after: /opt/caldera/requirements.txt (content)
+@@ -28,4 +28,5 @@
+ aioftp==0.16.1; python_version < '3.7'
+ pyminizip==0.2.6
+ # Pathfinder Reqs-Inserted w/Ansible
++networkx==2.7.1
+  
+
+changed: [linsys0red] => (item=networkx==2.7.1) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": "networkx==2.7.1", "msg": "line added"}
+--- before: /opt/caldera/requirements.txt (content)
++++ after: /opt/caldera/requirements.txt (content)
+@@ -28,5 +28,6 @@
+ aioftp==0.16.1; python_version < '3.7'
+ pyminizip==0.2.6
+ # Pathfinder Reqs-Inserted w/Ansible
++pydantic==1.9.0
+ networkx==2.7.1
+  
+
+changed: [linsys0red] => (item=pydantic==1.9.0) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": "pydantic==1.9.0", "msg": "line added"}
+
+TASK [install requirements] ****************************************************
+ok: [linsys0red] => {"changed": false, "cmd": ["/usr/local/bin/pip3", "install", "-r", "/opt/caldera/requirements.txt"], "name": null, "requirements": "/opt/caldera/requirements.txt", "state": "present", "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\\n", "stderr_lines": ["WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv"], "stdout": "Ignoring cryptography: markers 'python_version <= \\"3.7\\"' don't match your environment\\nIgnoring aioftp: markers 'python_version < \\"3.7\\"' don't match your environment\\nRequirement already satisfied: aiohttp-jinja2==1.5.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 1)) (1.5)\\nRequirement already satisfied: aiohttp==3.8.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 2)) (3.8.1)\\nRequirement already satisfied: aiohttp_session==2.9.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 3)) (2.9.0)\\nRequirement already satisfied: aiohttp-security==0.4.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 4)) (0.4.0)\\nRequirement already satisfied: aiohttp-apispec==2.2.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 5)) (2.2.3)\\nRequirement already satisfied: jinja2==3.0.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 6)) (3.0.3)\\nRequirement already satisfied: pyyaml>=5.1 in /usr/lib/python3/dist-packages (from -r /opt/caldera/requirements.txt (line 7)) (5.3.1)\\nRequirement already satisfied: cryptography>=3.2 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 9)) (38.0.1)\\nRequirement already satisfied: websockets>=10.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 10)) (10.3)\\nRequirement already satisfied: Sphinx==5.1.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 11)) (5.1.1)\\nRequirement already satisfied: docutils==0.16 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 12)) (0.16)\\nRequirement already satisfied: sphinx_rtd_theme==0.4.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 13)) (0.4.3)\\nRequirement already satisfied: myst-parser==0.18.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 14)) (0.18.0)\\nRequirement already satisfied: marshmallow==3.5.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 15)) (3.5.1)\\nRequirement already satisfied: dirhash==0.2.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 16)) (0.2.0)\\nRequirement already satisfied: docker==4.2.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 17)) (4.2.0)\\nRequirement already satisfied: donut-shellcode==0.9.2 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 18)) (0.9.2)\\nRequirement already satisfied: marshmallow-enum==1.5.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 19)) (1.5.1)\\nRequirement already satisfied: ldap3==2.8.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 20)) (2.8.1)\\nRequirement already satisfied: lxml~=4.9.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 21)) (4.9.1)\\nRequirement already satisfied: reportlab==3.5.67 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 22)) (3.5.67)\\nRequirement already satisfied: svglib==1.0.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 23)) (1.0.1)\\nRequirement already satisfied: Markdown==3.3.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 24)) (3.3.3)\\nRequirement already satisfied: dnspython==2.1.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 25)) (2.1.0)\\nRequirement already satisfied: asyncssh==2.11.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 26)) (2.11.0)\\nRequirement already satisfied: aioftp~=0.20.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 27)) (0.20.1)\\nRequirement already satisfied: pyminizip==0.2.6 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 29)) (0.2.6)\\nRequirement already satisfied: pydantic==1.9.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 31)) (1.9.0)\\nRequirement already satisfied: networkx==2.7.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 32)) (2.7.1)\\nRequirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (6.0.2)\\nRequirement already satisfied: yarl<2.0,>=1.0 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (1.8.1)\\nRequirement already satisfied: charset-normalizer<3.0,>=2.0 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (2.1.1)\\nRequirement already satisfied: aiosignal>=1.1.2 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (1.2.0)\\nRequirement already satisfied: attrs>=17.3.0 in /usr/lib/python3/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (19.3.0)\\nRequirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (1.3.1)\\nRequirement already satisfied: async-timeout<5.0,>=4.0.0a3 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (4.0.2)\\nRequirement already satisfied: apispec<4.0,>=3.0.0 in /usr/local/lib/python3.8/dist-packages (from aiohttp-apispec==2.2.3->-r /opt/caldera/requirements.txt (line 5)) (3.3.2)\\nRequirement already satisfied: webargs<6.0 in /usr/local/lib/python3.8/dist-packages (from aiohttp-apispec==2.2.3->-r /opt/caldera/requirements.txt (line 5)) (5.5.3)\\nRequirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.8/dist-packages (from jinja2==3.0.3->-r /opt/caldera/requirements.txt (line 6)) (2.1.1)\\nRequirement already satisfied: snowballstemmer>=1.1 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.2.0)\\nRequirement already satisfied: sphinxcontrib-jsmath in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.1)\\nRequirement already satisfied: sphinxcontrib-qthelp in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.3)\\nRequirement already satisfied: packaging in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (21.3)\\nRequirement already satisfied: sphinxcontrib-applehelp in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.2)\\nRequirement already satisfied: babel>=1.3 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.10.3)\\nRequirement already satisfied: Pygments>=2.0 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.13.0)\\nRequirement already satisfied: alabaster<0.8,>=0.7 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (0.7.12)\\nRequirement already satisfied: sphinxcontrib-serializinghtml>=1.1.5 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.1.5)\\nRequirement already satisfied: requests>=2.5.0 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.28.1)\\nRequirement already satisfied: imagesize in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.4.1)\\nRequirement already satisfied: sphinxcontrib-htmlhelp>=2.0.0 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.0.0)\\nRequirement already satisfied: sphinxcontrib-devhelp in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.2)\\nRequirement already satisfied: importlib-metadata>=4.4 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (5.0.0)\\nRequirement already satisfied: markdown-it-py<3.0.0,>=1.0.0 in /usr/local/lib/python3.8/dist-packages (from myst-parser==0.18.0->-r /opt/caldera/requirements.txt (line 14)) (2.1.0)\\nRequirement already satisfied: typing-extensions in /usr/local/lib/python3.8/dist-packages (from myst-parser==0.18.0->-r /opt/caldera/requirements.txt (line 14)) (4.3.0)\\nRequirement already satisfied: mdit-py-plugins~=0.3.0 in /usr/local/lib/python3.8/dist-packages (from myst-parser==0.18.0->-r /opt/caldera/requirements.txt (line 14)) (0.3.1)\\nRequirement already satisfied: scantree>=0.0.1 in /usr/local/lib/python3.8/dist-packages (from dirhash==0.2.0->-r /opt/caldera/requirements.txt (line 16)) (0.0.1)\\nRequirement already satisfied: websocket-client>=0.32.0 in /usr/local/lib/python3.8/dist-packages (from docker==4.2.0->-r /opt/caldera/requirements.txt (line 17)) (1.4.1)\\nRequirement already satisfied: six>=1.4.0 in /usr/lib/python3/dist-packages (from docker==4.2.0->-r /opt/caldera/requirements.txt (line 17)) (1.14.0)\\nRequirement already satisfied: pyasn1>=0.4.6 in /usr/local/lib/python3.8/dist-packages (from ldap3==2.8.1->-r /opt/caldera/requirements.txt (line 20)) (0.4.8)\\nRequirement already satisfied: pillow>=4.0.0 in /usr/local/lib/python3.8/dist-packages (from reportlab==3.5.67->-r /opt/caldera/requirements.txt (line 22)) (9.2.0)\\nRequirement already satisfied: tinycss2>=0.6.0 in /usr/local/lib/python3.8/dist-packages (from svglib==1.0.1->-r /opt/caldera/requirements.txt (line 23)) (1.1.1)\\nRequirement already satisfied: cssselect2>=0.2.0 in /usr/local/lib/python3.8/dist-packages (from svglib==1.0.1->-r /opt/caldera/requirements.txt (line 23)) (0.7.0)\\nRequirement already satisfied: cffi>=1.12 in /usr/local/lib/python3.8/dist-packages (from cryptography>=3.2->-r /opt/caldera/requirements.txt (line 9)) (1.15.1)\\nRequirement already satisfied: pytz>=2015.7 in /usr/lib/python3/dist-packages (from babel>=1.3->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2019.3)\\nRequirement already satisfied: pycparser in /usr/local/lib/python3.8/dist-packages (from cffi>=1.12->cryptography>=3.2->-r /opt/caldera/requirements.txt (line 9)) (2.21)\\nRequirement already satisfied: webencodings in /usr/local/lib/python3.8/dist-packages (from cssselect2>=0.2.0->svglib==1.0.1->-r /opt/caldera/requirements.txt (line 23)) (0.5.1)\\nRequirement already satisfied: zipp>=0.5 in /usr/lib/python3/dist-packages (from importlib-metadata>=4.4->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.0)\\nRequirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.8/dist-packages (from markdown-it-py<3.0.0,>=1.0.0->myst-parser==0.18.0->-r /opt/caldera/requirements.txt (line 14)) (0.1.2)\\nRequirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests>=2.5.0->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2019.11.28)\\nRequirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests>=2.5.0->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.8)\\nRequirement already satisfied: urllib3<1.27,>=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests>=2.5.0->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.26.12)\\nRequirement already satisfied: pathspec>=0.5.9 in /usr/local/lib/python3.8/dist-packages (from scantree>=0.0.1->dirhash==0.2.0->-r /opt/caldera/requirements.txt (line 16)) (0.10.1)\\nRequirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.8/dist-packages (from packaging->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (3.0.9)\\n", "stdout_lines": ["Ignoring cryptography: markers 'python_version <= \\"3.7\\"' don't match your environment", "Ignoring aioftp: markers 'python_version < \\"3.7\\"' don't match your environment", "Requirement already satisfied: aiohttp-jinja2==1.5.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 1)) (1.5)", "Requirement already satisfied: aiohttp==3.8.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 2)) (3.8.1)", "Requirement already satisfied: aiohttp_session==2.9.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 3)) (2.9.0)", "Requirement already satisfied: aiohttp-security==0.4.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 4)) (0.4.0)", "Requirement already satisfied: aiohttp-apispec==2.2.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 5)) (2.2.3)", "Requirement already satisfied: jinja2==3.0.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 6)) (3.0.3)", "Requirement already satisfied: pyyaml>=5.1 in /usr/lib/python3/dist-packages (from -r /opt/caldera/requirements.txt (line 7)) (5.3.1)", "Requirement already satisfied: cryptography>=3.2 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 9)) (38.0.1)", "Requirement already satisfied: websockets>=10.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 10)) (10.3)", "Requirement already satisfied: Sphinx==5.1.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 11)) (5.1.1)", "Requirement already satisfied: docutils==0.16 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 12)) (0.16)", "Requirement already satisfied: sphinx_rtd_theme==0.4.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 13)) (0.4.3)", "Requirement already satisfied: myst-parser==0.18.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 14)) (0.18.0)", "Requirement already satisfied: marshmallow==3.5.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 15)) (3.5.1)", "Requirement already satisfied: dirhash==0.2.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 16)) (0.2.0)", "Requirement already satisfied: docker==4.2.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 17)) (4.2.0)", "Requirement already satisfied: donut-shellcode==0.9.2 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 18)) (0.9.2)", "Requirement already satisfied: marshmallow-enum==1.5.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 19)) (1.5.1)", "Requirement already satisfied: ldap3==2.8.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 20)) (2.8.1)", "Requirement already satisfied: lxml~=4.9.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 21)) (4.9.1)", "Requirement already satisfied: reportlab==3.5.67 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 22)) (3.5.67)", "Requirement already satisfied: svglib==1.0.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 23)) (1.0.1)", "Requirement already satisfied: Markdown==3.3.3 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 24)) (3.3.3)", "Requirement already satisfied: dnspython==2.1.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 25)) (2.1.0)", "Requirement already satisfied: asyncssh==2.11.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 26)) (2.11.0)", "Requirement already satisfied: aioftp~=0.20.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 27)) (0.20.1)", "Requirement already satisfied: pyminizip==0.2.6 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 29)) (0.2.6)", "Requirement already satisfied: pydantic==1.9.0 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 31)) (1.9.0)", "Requirement already satisfied: networkx==2.7.1 in /usr/local/lib/python3.8/dist-packages (from -r /opt/caldera/requirements.txt (line 32)) (2.7.1)", "Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (6.0.2)", "Requirement already satisfied: yarl<2.0,>=1.0 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (1.8.1)", "Requirement already satisfied: charset-normalizer<3.0,>=2.0 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (2.1.1)", "Requirement already satisfied: aiosignal>=1.1.2 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (1.2.0)", "Requirement already satisfied: attrs>=17.3.0 in /usr/lib/python3/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (19.3.0)", "Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (1.3.1)", "Requirement already satisfied: async-timeout<5.0,>=4.0.0a3 in /usr/local/lib/python3.8/dist-packages (from aiohttp==3.8.1->-r /opt/caldera/requirements.txt (line 2)) (4.0.2)", "Requirement already satisfied: apispec<4.0,>=3.0.0 in /usr/local/lib/python3.8/dist-packages (from aiohttp-apispec==2.2.3->-r /opt/caldera/requirements.txt (line 5)) (3.3.2)", "Requirement already satisfied: webargs<6.0 in /usr/local/lib/python3.8/dist-packages (from aiohttp-apispec==2.2.3->-r /opt/caldera/requirements.txt (line 5)) (5.5.3)", "Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.8/dist-packages (from jinja2==3.0.3->-r /opt/caldera/requirements.txt (line 6)) (2.1.1)", "Requirement already satisfied: snowballstemmer>=1.1 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.2.0)", "Requirement already satisfied: sphinxcontrib-jsmath in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.1)", "Requirement already satisfied: sphinxcontrib-qthelp in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.3)", "Requirement already satisfied: packaging in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (21.3)", "Requirement already satisfied: sphinxcontrib-applehelp in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.2)", "Requirement already satisfied: babel>=1.3 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.10.3)", "Requirement already satisfied: Pygments>=2.0 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.13.0)", "Requirement already satisfied: alabaster<0.8,>=0.7 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (0.7.12)", "Requirement already satisfied: sphinxcontrib-serializinghtml>=1.1.5 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.1.5)", "Requirement already satisfied: requests>=2.5.0 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.28.1)", "Requirement already satisfied: imagesize in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.4.1)", "Requirement already satisfied: sphinxcontrib-htmlhelp>=2.0.0 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.0.0)", "Requirement already satisfied: sphinxcontrib-devhelp in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.2)", "Requirement already satisfied: importlib-metadata>=4.4 in /usr/local/lib/python3.8/dist-packages (from Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (5.0.0)", "Requirement already satisfied: markdown-it-py<3.0.0,>=1.0.0 in /usr/local/lib/python3.8/dist-packages (from myst-parser==0.18.0->-r /opt/caldera/requirements.txt (line 14)) (2.1.0)", "Requirement already satisfied: typing-extensions in /usr/local/lib/python3.8/dist-packages (from myst-parser==0.18.0->-r /opt/caldera/requirements.txt (line 14)) (4.3.0)", "Requirement already satisfied: mdit-py-plugins~=0.3.0 in /usr/local/lib/python3.8/dist-packages (from myst-parser==0.18.0->-r /opt/caldera/requirements.txt (line 14)) (0.3.1)", "Requirement already satisfied: scantree>=0.0.1 in /usr/local/lib/python3.8/dist-packages (from dirhash==0.2.0->-r /opt/caldera/requirements.txt (line 16)) (0.0.1)", "Requirement already satisfied: websocket-client>=0.32.0 in /usr/local/lib/python3.8/dist-packages (from docker==4.2.0->-r /opt/caldera/requirements.txt (line 17)) (1.4.1)", "Requirement already satisfied: six>=1.4.0 in /usr/lib/python3/dist-packages (from docker==4.2.0->-r /opt/caldera/requirements.txt (line 17)) (1.14.0)", "Requirement already satisfied: pyasn1>=0.4.6 in /usr/local/lib/python3.8/dist-packages (from ldap3==2.8.1->-r /opt/caldera/requirements.txt (line 20)) (0.4.8)", "Requirement already satisfied: pillow>=4.0.0 in /usr/local/lib/python3.8/dist-packages (from reportlab==3.5.67->-r /opt/caldera/requirements.txt (line 22)) (9.2.0)", "Requirement already satisfied: tinycss2>=0.6.0 in /usr/local/lib/python3.8/dist-packages (from svglib==1.0.1->-r /opt/caldera/requirements.txt (line 23)) (1.1.1)", "Requirement already satisfied: cssselect2>=0.2.0 in /usr/local/lib/python3.8/dist-packages (from svglib==1.0.1->-r /opt/caldera/requirements.txt (line 23)) (0.7.0)", "Requirement already satisfied: cffi>=1.12 in /usr/local/lib/python3.8/dist-packages (from cryptography>=3.2->-r /opt/caldera/requirements.txt (line 9)) (1.15.1)", "Requirement already satisfied: pytz>=2015.7 in /usr/lib/python3/dist-packages (from babel>=1.3->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2019.3)", "Requirement already satisfied: pycparser in /usr/local/lib/python3.8/dist-packages (from cffi>=1.12->cryptography>=3.2->-r /opt/caldera/requirements.txt (line 9)) (2.21)", "Requirement already satisfied: webencodings in /usr/local/lib/python3.8/dist-packages (from cssselect2>=0.2.0->svglib==1.0.1->-r /opt/caldera/requirements.txt (line 23)) (0.5.1)", "Requirement already satisfied: zipp>=0.5 in /usr/lib/python3/dist-packages (from importlib-metadata>=4.4->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.0.0)", "Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.8/dist-packages (from markdown-it-py<3.0.0,>=1.0.0->myst-parser==0.18.0->-r /opt/caldera/requirements.txt (line 14)) (0.1.2)", "Requirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests>=2.5.0->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2019.11.28)", "Requirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests>=2.5.0->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (2.8)", "Requirement already satisfied: urllib3<1.27,>=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests>=2.5.0->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (1.26.12)", "Requirement already satisfied: pathspec>=0.5.9 in /usr/local/lib/python3.8/dist-packages (from scantree>=0.0.1->dirhash==0.2.0->-r /opt/caldera/requirements.txt (line 16)) (0.10.1)", "Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.8/dist-packages (from packaging->Sphinx==5.1.1->-r /opt/caldera/requirements.txt (line 11)) (3.0.9)"], "version": null, "virtualenv": null}
+
+TASK [Clone Pathfinder into caldera] *******************************************
+included: /tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/project/includes/pathfinder.yml for linsys0red
+
+TASK [Git caldera] *************************************************************
+changed: [linsys0red] => {"changed": true, "cmd": "git clone https://github.com/center-for-threat-informed-defense/caldera_pathfinder.git --recursive", "delta": "0:00:01.310987", "end": "2022-10-06 00:44:51.440696", "rc": 0, "start": "2022-10-06 00:44:50.129709", "stderr": "Cloning into 'caldera_pathfinder'...\\nSubmodule 'scanners/nmap/scripts/nmap-vulners' (https://github.com/vulnersCom/nmap-vulners.git) registered for path 'scanners/nmap/scripts/nmap-vulners'\\nCloning into '/opt/caldera/plugins/caldera_pathfinder/scanners/nmap/scripts/nmap-vulners'...", "stderr_lines": ["Cloning into 'caldera_pathfinder'...", "Submodule 'scanners/nmap/scripts/nmap-vulners' (https://github.com/vulnersCom/nmap-vulners.git) registered for path 'scanners/nmap/scripts/nmap-vulners'", "Cloning into '/opt/caldera/plugins/caldera_pathfinder/scanners/nmap/scripts/nmap-vulners'..."], "stdout": "Submodule path 'scanners/nmap/scripts/nmap-vulners': checked out 'bbf53dd085f8d810921ee00ccf85bdb329d59514'", "stdout_lines": ["Submodule path 'scanners/nmap/scripts/nmap-vulners': checked out 'bbf53dd085f8d810921ee00ccf85bdb329d59514'"]}
+
+TASK [command move caldera_pathfinder to caldera/plugins] **********************
+changed: [linsys0red] => {"changed": true, "cmd": "mv caldera_pathfinder pathfinder", "delta": "0:00:00.003410", "end": "2022-10-06 00:44:51.839335", "rc": 0, "start": "2022-10-06 00:44:51.835925", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [Create SSH Keypair In Conf File if not Present] **************************
+included: /tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/project/includes/ssh_keygen.yml for linsys0red
+
+TASK [Generate an OpenSSH keypair] *********************************************
+--- before
++++ after
+@@ -1 +1,8 @@
+-{}
++{
++    "comment": "",
++    "fingerprint": "SHA256:J6UJrJx0n+jKcv/KNsf7I55hyI5MA9jRrVRRXHa+s7I",
++    "format": "",
++    "public_key": "AAAAB3NzaC1yc2EAAAADAQABAAACAQCl2xAyudCTBMow2npdPwSRcfRSKzpLgr1Scitc7uCZRe3iFf4lz3cB9uGKOXxJJgQCthASB3RPX+WqNmG1D2W2QR4zTqzsU2cKLpvomFO6XQ3NUQXa0nwl75s2jD9U0eYAbSSu5muIfrB4eXllMsNzjogupaRos3A0UWSeNjokFRsyGiC8y1yYLqAeyCtZRMdUgMn/jwEb67YlpCi+JhQUQOdNJlYzPKEmxozGCpsLJ/nQQkuVm06p5qXyHq1e91P3fXwV1qiIjpLHd2Gs6J9ItsxFHj95L2BdomqNQy742UILKEKSqC/q71UzWfiX5JF/SvGhvMpOy5j2gP4UVuVH0SnxcrqdnnNkEF5sKgGJmiUK4h3q6YXIk+v5no33+ufJMg+QFHf4aYkTiYijS2H12GFba8gmeZk6wDPZEEXlP5gE6JowSzGz3Z/hE+wm4BUOpmAA/dvFnNevo6P4x5Fn4+nSc8iZtu4LR7PnPl8+iK1R7xvt4ArZjGT/sks069LUrA5Jj6nKwB6eTS8jVm6NCq+GDq01eDJfjbnpIIj9D5fgWZv92Gb+/BV2t9brjnO5nT2CFK9O6iMtS6Y5bMToqUew6spRyuxLquSdMbL4FtRzigh29Lxj0aAupq4kLcrsbxvz2Z3AQ6w2ACtqC5+Iws/a7muZWX2oPlzEHJjP9Q==",
++    "size": 4096,
++    "type": "rsa"
++}
+
+changed: [linsys0red] => {"changed": true, "comment": "", "filename": "/opt/caldera/conf/ssh_keys/id_rsa", "fingerprint": "SHA256:J6UJrJx0n+jKcv/KNsf7I55hyI5MA9jRrVRRXHa+s7I", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCl2xAyudCTBMow2npdPwSRcfRSKzpLgr1Scitc7uCZRe3iFf4lz3cB9uGKOXxJJgQCthASB3RPX+WqNmG1D2W2QR4zTqzsU2cKLpvomFO6XQ3NUQXa0nwl75s2jD9U0eYAbSSu5muIfrB4eXllMsNzjogupaRos3A0UWSeNjokFRsyGiC8y1yYLqAeyCtZRMdUgMn/jwEb67YlpCi+JhQUQOdNJlYzPKEmxozGCpsLJ/nQQkuVm06p5qXyHq1e91P3fXwV1qiIjpLHd2Gs6J9ItsxFHj95L2BdomqNQy742UILKEKSqC/q71UzWfiX5JF/SvGhvMpOy5j2gP4UVuVH0SnxcrqdnnNkEF5sKgGJmiUK4h3q6YXIk+v5no33+ufJMg+QFHf4aYkTiYijS2H12GFba8gmeZk6wDPZEEXlP5gE6JowSzGz3Z/hE+wm4BUOpmAA/dvFnNevo6P4x5Fn4+nSc8iZtu4LR7PnPl8+iK1R7xvt4ArZjGT/sks069LUrA5Jj6nKwB6eTS8jVm6NCq+GDq01eDJfjbnpIIj9D5fgWZv92Gb+/BV2t9brjnO5nT2CFK9O6iMtS6Y5bMToqUew6spRyuxLquSdMbL4FtRzigh29Lxj0aAupq4kLcrsbxvz2Z3AQ6w2ACtqC5+Iws/a7muZWX2oPlzEHJjP9Q==", "size": 4096, "type": "rsa"}
+
+TASK [Setup Default File] ******************************************************
+included: /tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/project/includes/setup_default_file.yml for linsys0red
+
+TASK [Import Vars] *************************************************************
+ok: [linsys0red] => {"ansible_facts": {"ability_refresh": 60, "ansible_python_interpreter": "/usr/bin/python3", "api_key_blue": "BLUEADMIN123", "api_key_red": "ADMIN123", "app_contact_dns_domain": "505cve.bde", "app_contact_dns_socket": "0.0.0.0:8853", "app_contact_ftp_host": "0.0.0.0", "app_contact_ftp_port": "2222", "app_contact_ftp_pword": "caldera", "app_contact_ftp_server_dir": "ftp_dir", "app_contact_ftp_user": "caldera_user", "app_contact_gist": "", "app_contact_html": "/weather", "app_contact_http": "http://0.0.0.0:8888", "app_contact_slack_api_key": "SLACK_TOKEN", "app_contact_slack_bot_id": "SLACK_BOT_ID", "app_contact_slack_channel_id": "SLACK_CHANNEL_ID", "app_contact_tcp": "0.0.0.0:7010", "app_contact_tunnel_ssh_host_key_file": "caldera/conf/ssh_keys/id_rsa", "app_contact_tunnel_ssh_host_key_passphrase": "", "app_contact_tunnel_ssh_socket": "0.0.0.0:8022", "app_contact_tunnel_ssh_user_name": "sandcat", "app_contact_tunnel_ssh_user_password": "s4ndc4t!", "app_contact_udp": "0.0.0.0:7011", "app_contact_websocket": "0.0.0.0:7012", "auth_login_handler_module": "default", "caldera_install_root_dir": "/opt", "contact_port": 8888, "crypt_salt": "REPLACE_WITH_RANDOM_VALUE", "encryption_key": "ADMIN123", "exfil_dir": "/tmp/caldera", "go_home_path": "export GOPATH=$HOME/gopath", "go_path": "/usr/local/go/bin", "host": "0.0.0.0", "host_key_checking": false, "objects_planners_default": "atomic", "plugins": ["access", "atomic", "builder", "compass", "debrief", "pathfinder", "fieldmanual", "manx", "response", "sandcat", "stockpile"], "reports_dir": "/tmp", "timezone": "America/New_York"}, "ansible_included_var_files": ["/tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/project/group_vars/all.yml"], "changed": false}
+
+TASK [Remove file (delete file)] ***********************************************
+--- before
++++ after
+@@ -1,4 +1,4 @@
+ {
+     "path": "/opt/caldera/conf/default.yml",
+-    "state": "file"
++    "state": "absent"
+ }
+
+changed: [linsys0red] => {"changed": true, "path": "/opt/caldera/conf/default.yml", "state": "absent"}
+
+TASK [Create file from template] ***********************************************
+--- before
++++ after: /var/lib/awx/.ansible/tmp/ansible-local-699753gv9o_dd/tmp6ywfmh0n/default_facts.yml.j2
+@@ -0,0 +1,53 @@
++---
++# Set Defaults 
++ability_refresh: "60"
++api_key_blue: "BLUEADMIN123"
++api_key_red: "ADMIN123"
++app.contact.dns.domain: "505cve.bde"
++app.contact.dns.socket: "0.0.0.0:8853"
++app.contact.gist: "omitted"
++app.contact.html: "/weather"
++app.contact.http: "http://0.0.0.0:8888"
++app.contact.slack.api_key: "SLACK_TOKEN"
++app.contact.slack.bot_id: "SLACK_BOT_ID"
++app.contact.slack.channel_id: "SLACK_CHANNEL_ID"
++app.contact.tunnel.ssh.host_key_file: "caldera/conf/ssh_keys/id_rsa"
++app.contact.tunnel.ssh.host_key_passphrase: ""
++app.contact.tunnel.ssh.socket: "0.0.0.0:8022"
++app.contact.tunnel.ssh.user_name: "sandcat"
++app.contact.tunnel.ssh.user_password: "s4ndc4t!"
++app.contact.ftp.host: "0.0.0.0"
++app.contact.ftp.port: "2222"
++app.contact.ftp.pword: "caldera"
++app.contact.ftp.server.dir: "ftp_dir"
++app.contact.ftp.user: "caldera_user"
++app.contact.tcp: "0.0.0.0:7010"
++app.contact.udp: "0.0.0.0:7011"
++app.contact.websocket: "0.0.0.0:7012"
++objects.planners.default: "atomic"
++crypt_salt: "REPLACE_WITH_RANDOM_VALUE"
++encryption_key: "ADMIN123"
++exfil_dir: "/tmp/caldera"
++host: "0.0.0.0"
++plugins: "['access', 'atomic', 'builder', 'compass', 'debrief', 'pathfinder', 'fieldmanual', 'manx', 'response', 'sandcat', 'stockpile']"
++port: "8888"
++reports_dir: "/tmp"
++auth.login.handler.module: "default"
++requirements:
++  go:
++    command: go version
++    type: installed_program
++    version: 1.11
++  python:
++    attr: version
++    module: sys
++    type: python_module
++    version: 3.7.0
++users:
++  blue:
++    blue: admin
++  red:
++    admin: redteam
++    red: adminpassword
++
++
+
+changed: [linsys0red] => {"changed": true, "checksum": "db166b5342e145d729386ddb084896772a496195", "dest": "/opt/caldera/conf/default.yml", "gid": 0, "group": "root", "md5sum": "9465cc04cd05c5eaf6d555b319d3efa1", "mode": "0644", "owner": "root", "size": 1569, "src": "/home/instructor/.ansible/tmp/ansible-tmp-1665017095.273924-71087-55532987966730/source", "state": "file", "uid": 0}
+
+TASK [Launch Caldera] **********************************************************
+included: /tmp/bwrap_223_8axr4rkm/awx_223_x2o8jacd/project/includes/launch.yml for linsys0red
+
+TASK [launch] ******************************************************************
+changed: [linsys0red] => {"changed": true, "cmd": "cd /opt/caldera && nohup /usr/bin/python3 /opt/caldera/server.py &", "delta": "0:00:02.950952", "end": "2022-10-06 00:44:59.557700", "rc": 0, "start": "2022-10-06 00:44:56.606748", "stderr": "2022-10-06 00:44:57 - INFO  (config_generator.py:55 ensure_local_config) Creating new secure config in conf/local.yml\\n2022-10-06 00:44:57 - INFO  (config_generator.py:30 log_config_message) \\nLog into Caldera with the following admin credentials:\\n    Red:\\n        USERNAME: red\\n        PASSWORD: XARNYPd3vZL76KRlf-v1lEW22f00NWfhQuPtrfC0hBg\\n        API_TOKEN: 1Ulz-2xDpvazlhhWoB4Bs1QbkOPxmIsqFsGxkoaT_-s\\n    Blue:\\n        USERNAME: blue\\n        PASSWORD: 1cyn-uGfGevqpGpIb-MxUx8XbTWXEvCQ9_fxdWFHjKs\\n        API_TOKEN: r-XckhDbYMKsXQVxBVLzQfRpyABPB016Vkc4z3O0YEw\\nTo modify these values, edit the conf/local.yml file.\\n2022-10-06 00:44:57 - INFO  (server.py:124 <module>) Using main config from conf/local.yml\\n2022-10-06 00:44:57 - ERROR (base_events.py:1707 default_exception_handler) Task exception was never retrieved\\nfuture: <Task finished name='Task-15' coro=<Contact.start() done, defined at /opt/caldera/app/contacts/contact_dns.py:22> exception=OSError(98, 'Address already in use')>\\nTraceback (most recent call last):\\n  File \\"/opt/caldera/app/contacts/contact_dns.py\\", line 26, in start\\n    await loop.create_datagram_endpoint(lambda: self.handler, local_addr=(addr, port))\\n  File \\"/usr/lib/python3.8/asyncio/base_events.py\\", line 1332, in create_datagram_endpoint\\n    raise exceptions[0]\\n  File \\"/usr/lib/python3.8/asyncio/base_events.py\\", line 1316, in create_datagram_endpoint\\n    sock.bind(local_address)\\nOSError: [Errno 98] Address already in use\\n2022-10-06 00:44:57 - INFO  (tunnel_ssh.py:26 start) Generating temporary SSH private key. Was unable to use provided SSH private key\\n2022-10-06 00:44:58 - ERROR (base_events.py:1707 default_exception_handler) Task exception was never retrieved\\nfuture: <Task finished name='Task-19' coro=<BaseEventLoop.create_datagram_endpoint() done, defined at /usr/lib/python3.8/asyncio/base_events.py:1209> exception=OSError(98, 'Address already in use')>\\nTraceback (most recent call last):\\n  File \\"/usr/lib/python3.8/asyncio/base_events.py\\", line 1332, in create_datagram_endpoint\\n    raise exceptions[0]\\n  File \\"/usr/lib/python3.8/asyncio/base_events.py\\", line 1316, in create_datagram_endpoint\\n    sock.bind(local_address)\\nOSError: [Errno 98] Address already in use\\n2022-10-06 00:44:58 - INFO  (app_svc.py:116 load) Enabled plugin: pathfinder\\n2022-10-06 00:44:58 - INFO  (app_svc.py:116 load) Enabled plugin: debrief\\n2022-10-06 00:44:58 - INFO  (app_svc.py:116 load) Enabled plugin: response", "stderr_lines": ["2022-10-06 00:44:57 - INFO  (config_generator.py:55 ensure_local_config) Creating new secure config in conf/local.yml", "2022-10-06 00:44:57 - INFO  (config_generator.py:30 log_config_message) ", "Log into Caldera with the following admin credentials:", "    Red:", "        USERNAME: red", "        PASSWORD: XARNYPd3vZL76KRlf-v1lEW22f00NWfhQuPtrfC0hBg", "        API_TOKEN: 1Ulz-2xDpvazlhhWoB4Bs1QbkOPxmIsqFsGxkoaT_-s", "    Blue:", "        USERNAME: blue", "        PASSWORD: 1cyn-uGfGevqpGpIb-MxUx8XbTWXEvCQ9_fxdWFHjKs", "        API_TOKEN: r-XckhDbYMKsXQVxBVLzQfRpyABPB016Vkc4z3O0YEw", "To modify these values, edit the conf/local.yml file.", "2022-10-06 00:44:57 - INFO  (server.py:124 <module>) Using main config from conf/local.yml", "2022-10-06 00:44:57 - ERROR (base_events.py:1707 default_exception_handler) Task exception was never retrieved", "future: <Task finished name='Task-15' coro=<Contact.start() done, defined at /opt/caldera/app/contacts/contact_dns.py:22> exception=OSError(98, 'Address already in use')>", "Traceback (most recent call last):", "  File \\"/opt/caldera/app/contacts/contact_dns.py\\", line 26, in start", "    await loop.create_datagram_endpoint(lambda: self.handler, local_addr=(addr, port))", "  File \\"/usr/lib/python3.8/asyncio/base_events.py\\", line 1332, in create_datagram_endpoint", "    raise exceptions[0]", "  File \\"/usr/lib/python3.8/asyncio/base_events.py\\", line 1316, in create_datagram_endpoint", "    sock.bind(local_address)", "OSError: [Errno 98] Address already in use", "2022-10-06 00:44:57 - INFO  (tunnel_ssh.py:26 start) Generating temporary SSH private key. Was unable to use provided SSH private key", "2022-10-06 00:44:58 - ERROR (base_events.py:1707 default_exception_handler) Task exception was never retrieved", "future: <Task finished name='Task-19' coro=<BaseEventLoop.create_datagram_endpoint() done, defined at /usr/lib/python3.8/asyncio/base_events.py:1209> exception=OSError(98, 'Address already in use')>", "Traceback (most recent call last):", "  File \\"/usr/lib/python3.8/asyncio/base_events.py\\", line 1332, in create_datagram_endpoint", "    raise exceptions[0]", "  File \\"/usr/lib/python3.8/asyncio/base_events.py\\", line 1316, in create_datagram_endpoint", "    sock.bind(local_address)", "OSError: [Errno 98] Address already in use", "2022-10-06 00:44:58 - INFO  (app_svc.py:116 load) Enabled plugin: pathfinder", "2022-10-06 00:44:58 - INFO  (app_svc.py:116 load) Enabled plugin: debrief", "2022-10-06 00:44:58 - INFO  (app_svc.py:116 load) Enabled plugin: response"], "stdout": "", "stdout_lines": []}
+
+TASK [Get Password] ************************************************************
+changed: [linsys0red] => {"changed": true, "cmd": "/bin/bash -c 'sleep 120s'; /bin/cat /opt/caldera/conf/local.yml | grep 'red:'", "delta": "0:02:00.007095", "end": "2022-10-06 00:46:59.976287", "rc": 0, "start": "2022-10-06 00:44:59.969192", "stderr": "", "stderr_lines": [], "stdout": "api_key_red: 1Ulz-2xDpvazlhhWoB4Bs1QbkOPxmIsqFsGxkoaT_-s\\n  red:\\n    red: XARNYPd3vZL76KRlf-v1lEW22f00NWfhQuPtrfC0hBg", "stdout_lines": ["api_key_red: 1Ulz-2xDpvazlhhWoB4Bs1QbkOPxmIsqFsGxkoaT_-s", "  red:", "    red: XARNYPd3vZL76KRlf-v1lEW22f00NWfhQuPtrfC0hBg"]}
+
+TASK [Print Details] ***********************************************************
+ok: [linsys0red] => {
+    "msg": "Red PassWord/:['api_key_red: 1Ulz-2xDpvazlhhWoB4Bs1QbkOPxmIsqFsGxkoaT_-s', '  red:', '    red: XARNYPd3vZL76KRlf-v1lEW22f00NWfhQuPtrfC0hBg']"
+}
+
+PLAY RECAP *********************************************************************
+linsys0red                 : ok=46   changed=22   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+
