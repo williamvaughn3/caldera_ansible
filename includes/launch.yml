@@ -7,7 +7,7 @@
     tags: [ launch, check_running ]
 
 
-  - name: kill process if pid file exists
+  - name: kill process
     shell: "kill -9 python3"
     when: server_running.stdout.find("server.py") != -1
     tags: [ launch, check_running ]
