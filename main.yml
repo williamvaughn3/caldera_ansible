@@ -3,6 +3,20 @@
 - hosts: all
   become: true
 
+
+  pre_tasks:
+
+    - name: "Check if /usr/bin/python exists"
+      stat: '/usr/bin/python'
+      register: python_stat
+
+    - name: symlink /usr/bin/python -> /usr/bin/python3
+      raw: |
+        if [ -f /usr/bin/python3 ] && [ ! -f /usr/bin/python ]; then
+          ln --symbolic /usr/bin/python3 /usr/bin/python; 
+        fi
+      when: python_stat.stat.exists == false
+      
   tasks:
 
     - name: Import Vars
@@ -38,11 +52,3 @@
     - name: Launch Caldera
       include_tasks: includes/launch.yml
       tags: [ launch ]
-
-    - name: Get Password
-      shell: "/bin/bash -c 'sleep 120s'; /bin/cat {{ caldera_install_root_dir }}/caldera/conf/local.yml | grep 'red:'"
-      register: details
-
-    - name: Print Details 
-      debug: msg="Red PassWord/:{{ details.stdout.replace('\\"',':').split('\n') }}"
-
