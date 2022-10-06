@@ -48,6 +48,11 @@
       executable: pip3
     tags: [localbuild, requirements, pip, /caldera]
 
+  - name: install docker Stuffs
+    import_tasks: docker-install.yml
+    tags: [ docker, install ]
+    ignore_errors: true
+    #not tested yet
 
 
 
