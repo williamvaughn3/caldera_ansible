@@ -12,4 +12,30 @@ Builds on Ubuntu Distro
 group_vars all.yml is the list of defaults for alteration w/ template file.
 
 
+Files contains custom abilities and payloads that will automatically populate
 
+See Caldera's Read the Docs for information on how to create customized abilities.
+
+#After Creating Ability, You must move the Ability to the Following Dir
+/opt/caldera/plugins/access/data/payloads
+
+Then you need to create the YAML
+And move to the plugins/access/data/abilities/ directory
+
+The ID needs to be unique. (/bin/gen_rand_abill_id will help)
+---
+- id: 567eaaba-94cc-4a27-83f8-768e5638f4e1
+  name: NMAP scan
+  description: Scan an external host for open ports and services
+  tactic: technical-information-gathering
+  technique:
+    name: Conduct active scanning
+    attack_id: T1254
+  platforms:
+    darwin,linux:
+      sh:
+        command: |
+          ./scanner.sh #{target.ip}
+        timeout: 300
+        payloads:
+          - scanner.sh

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function get_random_value {
+  if [ "$1" ]; then
+    local random_value=$(cat /dev/urandom | tr -dc 'a-f0-9' | fold -w $1 | head -n 1)
+    echo -n $random_value
+  else
+    local random_value=$(cat /dev/urandom | tr -dc 'a-f0-9' | fold -w 16 | head -n 1)
+    echo -n $random_value
+  fi
+}
+
+ID=`get_random_value 8 ; echo -n '-'; get_random_value 4 ; echo -n '-'; get_random_value 4; echo -n '-'; get_random_value 4; echo -n '-'; get_random_value 12` 
+echo "Random Gen ID is $ID"

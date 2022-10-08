@@ -4,8 +4,8 @@ host_key_checking: false
 timezone: America/New_York
 ansible_python_interpreter: '/usr/bin/python3'
 caldera_install_root_dir: '/opt'
-go_path: '/usr/local/go/bin'
-go_home_path: 'export GOPATH=$HOME/gopath'
+go_path: "/usr/local/go/bin"
+go_home_path: "export GOPATH=$HOME/gopath"
 
 # Set Defaults 
 ability_refresh: 60
@@ -37,7 +37,7 @@ crypt_salt: REPLACE_WITH_RANDOM_VALUE
 encryption_key: ADMIN123
 exfil_dir: '/tmp/caldera'
 host: '0.0.0.0'
-plugins: [access,atomic,builder,compass,debrief,pathfinder,fieldmanual,manx,response,sandcat,stockpile,humans] # gameboard, training
+plugins: [access,atomic,compass,debrief,pathfinder,fieldmanual,manx,response,sandcat,stockpile,humans] # gameboard, training, builder
 contact_port: 8888
 reports_dir: '/tmp'
 auth_login_handler_module: default

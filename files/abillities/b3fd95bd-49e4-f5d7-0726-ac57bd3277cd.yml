@@ -1,0 +1,16 @@
+---
+- id: b3fd95bd-49e4-f5d7-0726-ac57bd3277cd
+  name: NMAP scan
+  description: Host Discovery Block Scanning
+  tactic: technical-information-gathering
+  technique:
+    name: Conduct block active scanning
+    attack_id: T1595
+  platforms:
+    darwin,linux,windows:
+      sh:
+        command: |
+          ./nmap_block_scan.sh #{target.ip}
+        timeout: 300
+        payloads:
+          - nmap_block_scan.sh
